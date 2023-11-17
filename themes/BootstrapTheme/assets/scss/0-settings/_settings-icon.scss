@@ -1,0 +1,29 @@
+/*
+ * [ settings / icon ]
+ */
+
+// -----------------------------------------------------------------------------
+
+$icons: (
+        arrow-bottom :'e900',
+        arrow-top :'e901',
+        arrow-right :'e902',
+        arrow-left :'e903',
+        angle-bottom :'e904',
+        angle-top :'e905',
+        angle-right :'e906',
+        angle-left :'e907',
+        plus :'e908',
+        search :'e909',
+        heart :'e90a',
+        cart :'e90b',
+        account :'e90c',
+);
+
+@function str-unicode($str) {
+    @return unquote("\"") + unquote(str-insert($str, "\\", 1)) + unquote("\"")
+}
+
+@function unicode($icon) {
+    @return str-unicode(quote(map-get($icons, $icon)));
+}

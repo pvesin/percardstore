@@ -1,0 +1,9 @@
+BitBag\SyliusCmsPlugin\Entity\Section:
+    list_links:
+        code: 'list_links'
+
+BitBag\SyliusCmsPlugin\Entity\SectionTranslation:
+    list_links_trans:
+        translatable: '@list_links'
+        locale: 'fr'
+        name: "Liste de liens"

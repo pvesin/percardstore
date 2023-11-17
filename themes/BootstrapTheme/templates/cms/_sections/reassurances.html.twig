@@ -1,0 +1,10 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<div class="row justify-content-center mt-5 mb-1">
+    {% for block in blocks %}
+        <div class="col-6 col-sm-4 col-md-2 text-center mb-4">
+            {{ Image.lazyload(block.code, 'logo', {classes: 'mb-2'}) }}
+            <p class="m-0 px-2 fw-bold">{{ block.name }} <span class="text-primary">{{ block.content }}</span></p>
+        </div>
+    {% endfor %}
+</div>

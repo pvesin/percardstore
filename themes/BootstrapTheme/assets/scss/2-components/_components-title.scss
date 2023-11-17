@@ -1,0 +1,20 @@
+/*
+ * [ components / title ]
+ */
+
+// -----------------------------------------------------------------------------
+
+.Title--decoration {
+    position: relative;
+    padding-left: 1rem;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 6px;
+        background-color: $primary;
+    }
+}

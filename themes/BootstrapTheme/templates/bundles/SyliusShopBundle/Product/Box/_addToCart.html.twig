@@ -1,0 +1,36 @@
+{% import "@SyliusShop/Common/Macro/icons.html.twig" as icons %}
+
+{% set product = order_item.variant.product %}
+
+{% set variant = product|sylius_resolve_variant %}
+{% set inStock = product.enabledVariants and not product.simple or variant.onHold - variant.onHand != 0 %}
+
+{{ form_start(form, {'action': path('sylius_shop_ajax_cart_add_item_immediately', {'productId': product.id}), 'attr': {
+    'id': 'sylius-product-adding-to-cart-'~product.code,
+    'class': 'js-form-add-to-cart',
+    'novalidate': 'novalidate',
+    'data-redirect': path(configuration.getRedirectRoute('summary')),
+    'data-product-id': product.id,
+}}) }}
+
+{{ form_widget(form.cartItem.quantity, { 'attr' : { 'class' : 'd-none', 'value' : '1' }}) }}
+
+{% if inStock and sylius.channel.isCatalogMode() == false %}
+    <button type="submit"
+            data-action="{{ path('sylius_shop_ajax_cart_add_item_immediately', {'productId': product.id}) }}"
+            class="js-add-to-cart-add_to_cart_immediately Button Button--primary border border-white mt-4 w-100 text-uppercase fw-bold">
+        <span class="js-span-add-to-cart">{{ 'sylius.ui.add_to_cart'|trans }}</span>
+    </button>
+{% endif %}
+<button type="submit"
+        data-action="{{ path('sylius_shop_ajax_quote_add_item', {'productId': product.id}) }}"
+        class="js-asdoria-shop-quote-request-add-to-quote Button Button--primary border border-white mt-4 w-100 text-uppercase fw-bold" {{ sylius_test_html_attribute('add-to-quote-button') }}
+        data-redirect="{{ path('asdoria_shop_quote_request_index') }}"
+        data-csrf-token="{{ csrf_token('asdoria-shop-quote-request-add-to-quote') }}"
+>
+    <span class="btn-icon">{{ icons.base('fas fa-archive') }}</span>
+    {{ 'asdoria_quote_request.ui.shop.add_to_quote'|trans }}
+</button>
+
+{#{{ form_row(form._token) }}#}
+{{ form_end(form, {'render_rest': false}) }}

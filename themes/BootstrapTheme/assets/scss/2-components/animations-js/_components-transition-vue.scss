@@ -1,0 +1,100 @@
+/*
+ * [ components / transition vue ]
+ */
+
+// -----------------------------------------------------------------------------
+
+/* purgecss start ignore */
+// 1. Simple fade
+// ----------------------------------------
+.Animation-fade-enter-active {
+    transition: all 0.5s ease;
+}
+.Animation-fade-leave-active {
+    transition: all 0.25s ease;
+}
+
+.Animation-fade-enter-from,
+.Animation-fade-leave-to {
+    opacity: 0;
+    transform: translateY(15px);
+}
+/* purgecss end ignore */
+
+// 2. Simple opacity
+// ----------------------------------------
+.Animation-opacity-enter-active {
+    transition: all 0.25s ease;
+}
+.Animation-opacity-leave-active {
+    transition: all 0.25s ease;
+}
+
+.Animation-opacity-enter-from,
+.Animation-opacity-leave-to {
+    opacity: 0;
+}
+
+// 3. Rotate X
+// ----------------------------------------
+.Animation-rotateX-enter-active,
+.Animation-rotateX-leave-active {
+    transition: all 0.25s ease;
+}
+
+.Animation-rotateX-enter-from,
+.Animation-rotateX-leave-to {
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transform-origin: top left;
+}
+
+// 4. Translate X from left
+// ----------------------------------------
+.Animation-translateX-enter-active,
+.Animation-translateX-leave-active {
+    transition: all 0.25s ease;
+}
+
+.Animation-translateX-enter-from,
+.Animation-translateX-leave-to {
+    transform: translateX(-100%);
+}
+
+// 5. Translate X from right
+// ----------------------------------------
+.Animation-translateX-byRight-enter-active,
+.Animation-translateX-byRight-leave-active {
+    transition: all 0.25s ease-out;
+}
+
+.Animation-translateX-byRight-enter-from,
+.Animation-translateX-byRight-leave-to {
+    transform: translateX(100%);
+}
+
+// 6. Scale from center
+// ----------------------------------------
+.Animation-scale-enter-active,
+.Animation-scale-leave-active {
+    transition: all 0.25s ease;
+}
+
+.Animation-scale-enter-from,
+.Animation-scale-leave-to {
+    transform: scale(0);
+}
+
+// 7. Translate and opacity
+// ----------------------------------------
+.Animation-transform-opacity-enter-active,
+.Animation-transform-opacity-leave-active {
+    transition: all 0.15s ease;
+}
+
+.Animation-transform-opacity-enter-from,
+.Animation-transform-opacity-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+/* purgecss end ignore */

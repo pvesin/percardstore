@@ -1,0 +1,5 @@
+services:
+    app.grid_filter.array_search:
+        class: App\Grid\Filter\SearchArrayFilter
+        tags:
+            - { name: sylius.grid_filter, type: array_search, form_type: App\Form\Type\Filter\ArraySearchFilterType }

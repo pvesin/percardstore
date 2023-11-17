@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_1:
+        code: 'reassurances_1'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_1_trans:
+        translatable: '@reassurances_1'
+        locale: 'fr'
+        name: "DES CARTES..."
+        content: "ET QUE DU POKÉMON"

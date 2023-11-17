@@ -1,0 +1,16 @@
+App\Entity\Addressing\Country:
+  country_fr:
+    code: FR
+    enabled: true
+
+App\Entity\Addressing\Zone:
+  zone_europe:
+    code: EUROPE
+    name: Europe
+    type: country
+
+
+App\Entity\Addressing\ZoneMember:
+  zone_member_fr:
+    belongsTo: "@zone_europe"
+    code: FR

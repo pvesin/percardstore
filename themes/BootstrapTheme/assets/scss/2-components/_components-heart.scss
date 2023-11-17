@@ -1,0 +1,77 @@
+/*
+ * [ components / heart ]
+ */
+
+// -----------------------------------------------------------------------------
+
+.Heart-like {
+    display: block;
+    position: relative;
+    width: 28px;
+    height: 23px;
+
+    &:after, &:before {
+        position: absolute;
+        top: 0;
+        background-color: $gray-500;
+        transition: all 0.25s ease-out;
+    }
+
+    &:before {
+        content: "";
+        left: 14px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+        width: 14px;
+        height: 22px;
+        border-radius: 40px 40px 0 0;
+        transition: background .4s;
+    }
+
+    &:after {
+        content: "";
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+        width: 14px;
+        height: 22px;
+        border-radius: 40px 40px 0 0;
+        transition: background .4s;
+    }
+
+    &:hover {
+
+        &:after, &:before {
+            background-color: $primary;
+        }
+    }
+}
+
+.Heart-like.js-liked {
+    animation: liked .4s ease;
+
+    &:after, &:before {
+        background-color: $primary;
+    }
+}
+
+
+//.Heart-like:not(.js-liked) {
+//    &:hover {
+//        &:before, &:after {
+//            @apply bg-red-500;
+//        }
+//    }
+//}
+
+@keyframes liked {
+    0% {
+        transform: scale(.8);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

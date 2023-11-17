@@ -1,0 +1,12 @@
+/*
+ * [ settings / path ]
+ */
+
+// -----------------------------------------------------------------------------
+
+// Warning : path based on index.scss
+$fonts-path: '../../fonts/';
+
+@function font($file, $basePath: '') {
+    @return url($basePath + $fonts-path + $file);
+}

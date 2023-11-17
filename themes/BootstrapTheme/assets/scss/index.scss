@@ -1,0 +1,52 @@
+//@import '../../../../vendor/sylius/bootstrap-theme/assets/scss/index';
+
+// Overriding default Bootstrap variables
+@import "bootstrap-theme/variables";
+
+// All Bootstrap styles
+@import "~bootstrap/scss/bootstrap";
+
+// Custom theme styles
+@import "../../../../vendor/sylius/bootstrap-theme/assets/scss/steps";
+@import "bootstrap-theme/custom";
+@import "bootstrap-theme/utilities";
+
+// Third party components
+@import '~semantic-ui-css/components/flag.min.css';
+@import '~glightbox/dist/css/glightbox.min.css';
+@import '~@glidejs/glide/src/assets/sass/glide.core';
+
+@import
+'0-settings/settings-icon',
+'0-settings/settings-mixins',
+'0-settings/settings-path',
+'0-settings/settings-utils'
+;
+
+@import
+'1-base/base-default',
+'1-base/base-font'
+;
+
+@import
+'2-components/animations-js/components-transition-vue',
+'2-components/components-button',
+'2-components/components-card',
+'2-components/components-cart',
+'2-components/components-heart',
+'2-components/components-icon',
+'2-components/components-input',
+'2-components/components-loader',
+'2-components/components-menu',
+'2-components/components-title',
+'2-components/components-underline'
+;
+
+@import
+'3-modules/modules-bb-wishlist',
+'3-modules/modules-slider'
+;
+
+@import
+'4-objects/objects-container'
+;

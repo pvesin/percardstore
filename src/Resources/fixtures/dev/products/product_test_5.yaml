@@ -1,0 +1,44 @@
+App\Entity\Product\Product:
+    product_test_5:
+        code: 'product_test_5'
+        channels: ['@channel_web_store_fr']
+        images: ['@product_test_5_image_1']
+
+App\Entity\Product\ProductTranslation:
+    product_test_5_trans:
+        translatable: '@product_test_5'
+        name: "Collection de 324 Cartes Pokémon TCG : Boîte Booster Épée & Bouclier"
+        slug: 'produit-test-5'
+        locale: 'fr'
+        shortDescription: <identity("Lorem ipsum long")>
+        description: <identity("Lorem ipsum long")>
+
+App\Entity\Channel\ChannelPricing:
+    product_test_5_pricing:
+        channelCode: 'web_store_fr'
+        productVariant: '@product_test_5_variant'
+        price: 4600
+        originalPrice: 4600
+
+App\Entity\Product\ProductVariant:
+    product_test_5_variant:
+        code: 'product_test_5'
+        product: '@product_test_5'
+        onHand: 0
+        tracked: true
+
+App\Entity\Product\ProductVariantTranslation:
+    product_test_5_variant_1_translation:
+        translatable: '@product_test_5_variant'
+        name: "Collection de 324 Cartes Pokémon TCG : Boîte Booster Épée & Bouclier"
+        locale: 'fr'
+
+App\Entity\Product\ProductTaxon:
+    product_test_5_taxon_1:
+        product: '@product_test_5'
+        taxon: '@taxon_display'
+
+App\Entity\Product\ProductImage:
+    product_test_5_image_1:
+        type: 'main'
+        path: 'products/product_test_5_1.png'

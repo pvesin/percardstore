@@ -1,0 +1,15 @@
+App\Entity\Taxonomy\Taxon:
+    taxon_display:
+        code: display
+
+App\Entity\Taxonomy\TaxonTranslation:
+    taxon_display_trans_fr:
+        locale: 'fr'
+        slug: "display"
+        translatable: '@taxon_display'
+        name: "Display"
+    taxon_display_trans_en:
+        locale: 'en'
+        slug: "display"
+        translatable: '@taxon_display'
+        name: "Display"

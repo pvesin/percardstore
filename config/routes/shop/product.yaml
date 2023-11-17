@@ -1,0 +1,27 @@
+sylius_shop_product_search:
+    path: /search
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product::indexAction
+        _sylius:
+            serialization_groups: [Search, Default]
+            grid: app_shop_product_search
+            template: "@SyliusShop/Product/search.html.twig"
+    options:
+        expose: true
+
+sylius_shop_product_show:
+    path: /products/{slug}
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product::showAction
+        _sylius:
+            template: "@SyliusShop/Product/show.html.twig"
+            repository:
+                method: findOneByChannelAndSlug
+                arguments:
+                    - "expr:service('sylius.context.channel').getChannel()"
+                    - "expr:service('sylius.context.locale').getLocaleCode()"
+                    - $slug
+    options:
+        expose: true

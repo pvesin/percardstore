@@ -1,0 +1,6 @@
+services:
+    App\Twig\MediaExtension:
+        arguments:
+            $mediaRepository: "@bitbag_sylius_cms_plugin.repository.media"
+        tags:
+            - { name: twig.extension }

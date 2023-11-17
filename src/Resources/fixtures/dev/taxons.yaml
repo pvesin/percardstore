@@ -1,0 +1,3 @@
+include:
+    - 'taxons/taxon_test_1.yaml'
+    - 'taxons/taxon_test_2.yaml'

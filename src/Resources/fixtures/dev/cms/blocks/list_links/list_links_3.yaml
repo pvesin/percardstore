@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    list_links_3:
+        code: 'list_links_3'
+        channels: ['@channel_web_store_fr']
+        sections: ['@list_links']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    list_links_3_trans:
+        translatable: '@list_links_3'
+        locale: 'fr'
+        name: "AUTRE CATÉGORIE"
+        link: "#"

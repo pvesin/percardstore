@@ -1,0 +1,12 @@
+App\Entity\User\AdminUser:
+  user1:
+    username: 'admin'
+    usernameCanonical: 'admin'
+    enabled: true
+    plainPassword: 'admin'
+    email: 'philippe.vesin@asdoria.com'
+    emailCanonical: 'philippe.vesin@asdoria.com'
+    firstName: 'Admin'
+    lastName: 'Admin'
+    localeCode: 'fr'
+    encoderName: 'argon2i'

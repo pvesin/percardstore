@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_numbers_2:
+        code: 'reassurances_numbers_2'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances_numbers']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_numbers_2_trans:
+        translatable: '@reassurances_numbers_2'
+        locale: 'fr'
+        name: "104000"
+        content: "références vérifiées en catalogue"

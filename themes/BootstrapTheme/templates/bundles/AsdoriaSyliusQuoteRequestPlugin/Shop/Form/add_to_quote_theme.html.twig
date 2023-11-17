@@ -1,0 +1,76 @@
+{% extends 'bootstrap_4_layout.html.twig' %}
+{% block collection_widget -%}
+    {% from '@SyliusResource/Macros/notification.html.twig' import error %}
+    {% import _self as self %}
+    {% set attr = attr|merge({'class': attr.class|default ~ ' controls collection-widget'}) %}
+
+        <div data-form-type="collection" {{ block('widget_container_attributes') }}
+            {% if prototype is defined and allow_add %}
+                data-prototype='{{ self.collection_item(prototype, allow_delete, button_delete_label, prototype.vars.name)|e }}'
+                data-prototype-name='{{ prototype.vars.name }}'
+            {%- endif -%}
+        >
+            {{ error(form.vars.errors) }}
+
+            {% if prototypes|default is iterable %}
+                {% for key, subPrototype in prototypes %}
+                    <input type="hidden" data-form-prototype="{{ key }}"
+                           value="{{ self.collection_item(subPrototype, allow_delete, button_delete_label, subPrototype.vars.name)|e }}"
+                           data-subprototype-name="{{ subPrototype.vars.name }}"
+                    />
+                {% endfor %}
+            {% endif %}
+
+            <div data-form-collection="list">
+                {% for child in form %}
+                    {{ self.collection_item(child, allow_delete, button_delete_label, loop.index0) }}
+                {% endfor %}
+            </div>
+
+            {% if prototype is defined and allow_add %}
+                <a href="#" class="btn btn-outline-dark mb-2" data-form-collection="add">
+                    <i class="fas fa-plus"></i>
+                    {{ button_add_label|trans }}
+                </a>
+            {% endif %}
+        </div>
+{%- endblock collection_widget %}
+{% macro collection_item(form, allow_delete, button_delete_label, index) %}
+        <div data-form-collection="item" data-form-collection-index="{{ index }}" class="row mb-3">
+            <div class="col-12 col-sm-8">
+                {{ form_row(form.cartItem.variant, {'remote_url': path('asdoria_shop_quick_shopping_ajax_all_product_variants_by_phrase'), 'remote_criteria_type': 'contains', 'remote_criteria_name': 'phrase', 'load_edit_url': path('asdoria_shop_quick_shopping_ajax_all_product_variants_by_codes')}) }}
+            </div>
+            <div class="col-12 col-sm-2">
+                {{ form_row(form.cartItem.quantity) }}
+            </div>
+            {% if allow_delete %}
+                <div class="col-12 col-sm-1">
+                    <label>&nbsp;</label>
+                    <a href="#" data-form-collection="delete" class="btn btn-danger"
+                       style="margin-top: 1em;">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+{% endmacro %}
+{% block sylius_resource_autocomplete_choice_row %}
+    <div class="{% if required %}required {% endif %}{% if disabled %}disabled {% endif %}field{% if (not compound or force_error|default(false)) and not valid %} error{% endif %}">
+        {{- form_label(form) -}}
+        <div
+                class="sylius-autocomplete dropdown form-group d-flex {% if multiple %}multiple{% endif %}"
+                data-url="{{ remote_url }}"
+                data-choice-name="{{ choice_name }}"
+                data-choice-value="{{ choice_value }}"
+                data-criteria-type="{{ remote_criteria_type }}"
+                data-criteria-name="{{ remote_criteria_name }}"
+                data-load-edit-url="{{ load_edit_url }}"
+        >
+            {{- form_widget(form, {'attr': {'class' : 'autocomplete'}}) -}}
+            <img src="" class="dropdown-image rounded-circle" style="width: 2.5rem;">
+            <input class="dropdown-toggle form-control flex-fill" data-bs-toggle="dropdown" type="text" {% if placeholder is defined %}placeholder="{{ placeholder|trans }}"{% endif %}>
+            <div class="dropdown-menu top-0 m-0"></div>
+        </div>
+        {{- form_errors(form) -}}
+    </div>
+{% endblock %}

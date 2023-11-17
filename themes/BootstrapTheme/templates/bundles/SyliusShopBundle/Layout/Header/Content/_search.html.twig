@@ -1,0 +1,16 @@
+{# Start: Data for logo #}
+{% set searchLogoObject = {} %}
+{% set logoObject = get_media('logo') %}
+{% if logoObject is not empty %}
+    {% set searchLogoObject = {
+        'path': logoObject.path|imagine_filter('logo'),
+        'name': logoObject.name,
+    } %}
+{% endif %}
+{# End: Data for logo #}
+
+<div id="vm-searchbar"
+     class="flex-1 mx-6"
+     data-search-logo="{{ searchLogoObject|serialize('json') }}">
+    <div class="Loader-block h-12 rounded"></div>
+</div>

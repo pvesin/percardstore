@@ -1,0 +1,69 @@
+/*
+ * [ modules / slider ]
+ */
+
+// -----------------------------------------------------------------------------
+
+
+// 1. Main
+///////////////////////////////
+// li
+.glide__slide {
+    user-select: auto !important;
+}
+
+// Bullets
+.glide__bullet {
+    display: inline-block;
+    border-radius: 9999px;
+    margin: 0.25rem;
+    cursor: pointer;
+    width: 5px;
+    height: 5px;
+    background-color: $primary;
+}
+
+.glide__bullet--active {
+    width: 12px;
+    height: 12px;
+}
+
+// Arrows
+.glide__arrows {
+    [data-glide-dir="<"], [data-glide-dir=">"] {
+        cursor: pointer;
+    }
+}
+
+.glide__arrows--slider-center {
+    [data-glide-dir="<"] {
+        left: -55px;
+    }
+
+    [data-glide-dir=">"] {
+        right: -55px;
+    }
+}
+
+// Controls
+.m-slider-controls {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 42px);
+
+    &--lg {
+        @apply w-full;
+    }
+
+    @screen lg {
+        width: calc(100% + 52px);
+
+        &--lg {
+            width: calc(100% + 112px);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_4:
+        code: 'reassurances_4'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_4_trans:
+        translatable: '@reassurances_4'
+        locale: 'fr'
+        name: "LIVRAISON À"
+        content: "DOMICILE"

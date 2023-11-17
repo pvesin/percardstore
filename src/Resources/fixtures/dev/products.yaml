@@ -1,0 +1,6 @@
+include:
+    - 'products/product_test_1.yaml'
+    - 'products/product_test_2.yaml'
+    - 'products/product_test_3.yaml'
+    - 'products/product_test_4.yaml'
+    - 'products/product_test_5.yaml'

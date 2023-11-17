@@ -1,0 +1,5 @@
+include:
+    - 'sections/brands.yaml'
+    - 'sections/list_links.yaml'
+    - 'sections/reassurances.yaml'
+    - 'sections/reassurances_numbers.yaml'

@@ -1,0 +1,19 @@
+sylius_paypal_webhook:
+    resource: "@SyliusPayPalPlugin/Resources/config/webhook_routing.yaml"
+
+bitbag_sylius_cms_plugin:
+    resource: "@BitBagSyliusCmsPlugin/Resources/config/routing.yml"
+bitbag_sylius_wishlist_plugin:
+    resource: "@BitBagSyliusWishlistPlugin/Resources/config/routing.yml"
+    prefix: /{_locale}
+    requirements:
+        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
+    options:
+        expose: true
+
+asdoria_quick_shopping:
+    resource: "@AsdoriaSyliusQuickShoppingPlugin/Resources/config/routing.yaml"
+    options:
+        expose: true
+asdoria_quote_request:
+    resource: "@AsdoriaSyliusQuoteRequestPlugin/config/routing.yaml"

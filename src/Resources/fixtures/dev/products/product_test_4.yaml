@@ -1,0 +1,44 @@
+App\Entity\Product\Product:
+    product_test_4:
+        code: 'product_test_4'
+        channels: ['@channel_web_store_fr']
+        images: ['@product_test_4_image_1']
+
+App\Entity\Product\ProductTranslation:
+    product_test_4_trans:
+        translatable: '@product_test_4'
+        name: "Mew 025/025 Carte Pokémon™ Ultra rare Gold Neuve VF"
+        slug: 'produit-test-4'
+        locale: 'fr'
+        shortDescription: <identity("Lorem ipsum long")>
+        description: <identity("Lorem ipsum long")>
+
+App\Entity\Channel\ChannelPricing:
+    product_test_4_pricing:
+        channelCode: 'web_store_fr'
+        productVariant: '@product_test_4_variant'
+        price: 10900
+        originalPrice: 10900
+
+App\Entity\Product\ProductVariant:
+    product_test_4_variant:
+        code: 'product_test_4'
+        product: '@product_test_4'
+        onHand: 50
+        tracked: true
+
+App\Entity\Product\ProductVariantTranslation:
+    product_test_4_variant_1_translation:
+        translatable: '@product_test_4_variant'
+        name: "Mew 025/025 Carte Pokémon™ Ultra rare Gold Neuve VF"
+        locale: 'fr'
+
+App\Entity\Product\ProductTaxon:
+    product_test_4_taxon_1:
+        product: '@product_test_4'
+        taxon: '@taxon_single_card'
+
+App\Entity\Product\ProductImage:
+    product_test_4_image_1:
+        type: 'main'
+        path: 'products/product_test_4_1.png'

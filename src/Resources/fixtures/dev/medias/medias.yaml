@@ -1,0 +1,201 @@
+BitBag\SyliusCmsPlugin\Entity\Media:
+    img_logo:
+        code: logo
+        path: 'logo.png'
+        type: 'image'
+        channels: [ '@channel_web_store_fr' ]
+
+    img_flag_fr:
+        code: flag_fr
+        path: 'flag_fr.png'
+        type: 'image'
+        translations: ['@img_flag_fr_fr', '@img_flag_fr_en']
+        channels: ['@channel_web_store_fr']
+
+    img_flag_en:
+        code: flag_en
+        path: 'flag_en.png'
+        type: 'image'
+        translations: ['@img_flag_en_fr', '@img_flag_en_en']
+        channels: ['@channel_web_store_fr']
+
+    img_banner:
+        code: banner
+        path: 'banner.jpg'
+        type: 'image'
+        translations: ['@img_banner_fr', '@img_banner_en']
+        channels: ['@channel_web_store_fr']
+
+    img_banner_2:
+        code: banner_2
+        path: 'banner_2.jpg'
+        type: 'image'
+        translations: ['@img_banner_2_fr', '@img_banner_2_en']
+        channels: ['@channel_web_store_fr']
+
+    img_reassurances_1:
+        code: reassurances_1
+        path: 'reassurances/reassurances_1.png'
+        type: 'image'
+        translations: ['@img_reassurances_1_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+    img_reassurances_2:
+        code: reassurances_2
+        path: 'reassurances/reassurances_2.png'
+        type: 'image'
+        translations: ['@img_reassurances_2_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+    img_reassurances_3:
+        code: reassurances_3
+        path: 'reassurances/reassurances_3.png'
+        type: 'image'
+        translations: ['@img_reassurances_3_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+    img_reassurances_4:
+        code: reassurances_4
+        path: 'reassurances/reassurances_4.png'
+        type: 'image'
+        translations: ['@img_reassurances_4_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+    img_reassurances_5:
+        code: reassurances_5
+        path: 'reassurances/reassurances_5.png'
+        type: 'image'
+        translations: ['@img_reassurances_5_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+    img_list_links_1:
+        code: list_links_1
+        path: 'list_links/list_links_1.jpg'
+        type: 'image'
+        translations: ['@img_list_links_1_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@list_links']
+
+    img_list_links_2:
+        code: list_links_2
+        path: 'list_links/list_links_2.png'
+        type: 'image'
+        translations: ['@img_list_links_2_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@list_links']
+
+    img_list_links_3:
+        code: list_links_3
+        path: 'list_links/list_links_3.jpg'
+        type: 'image'
+        translations: ['@img_list_links_3_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@list_links']
+
+    img_brands_pca:
+        code: brands_pca
+        path: 'brands/pca.png'
+        type: 'image'
+        translations: ['@img_brands_pca_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@brands']
+
+    img_brands_pokemon:
+        code: brands_pokemon
+        path: 'brands/pokemon.png'
+        type: 'image'
+        translations: ['@img_brands_pokemon_fr']
+        channels: ['@channel_web_store_fr']
+        sections: ['@brands']
+
+BitBag\SyliusCmsPlugin\Entity\MediaTranslation:
+    img_flag_fr_fr:
+        locale: 'fr'
+        name: 'Drapeau français'
+        alt: 'Français'
+    img_flag_fr_en:
+        locale: 'en'
+        name: 'French flag'
+        alt: 'French'
+
+    img_flag_en_fr:
+        locale: 'fr'
+        name: 'Drapeau anglais'
+        alt: 'Anglais'
+    img_flag_en_en:
+        locale: 'en'
+        name: 'English flag'
+        alt: 'English'
+
+    img_banner_fr:
+        locale: 'fr'
+        name: 'Bannière'
+        alt: 'Bannière'
+    img_banner_en:
+        locale: 'en'
+        name: 'Banner'
+        alt: 'Banner'
+
+    img_banner_2_fr:
+        locale: 'fr'
+        name: 'Seconde bannière'
+        alt: 'Seconde bannière'
+    img_banner_2_en:
+        locale: 'en'
+        name: 'Second banner'
+        alt: 'Second banner'
+
+    img_reassurances_1_fr:
+        locale: 'fr'
+        name: 'Réassurance - 1'
+        alt: 'Réassurance - 1'
+
+    img_reassurances_2_fr:
+        locale: 'fr'
+        name: 'Réassurance - Paiement'
+        alt: 'Réassurance - Paiement'
+
+    img_reassurances_3_fr:
+        locale: 'fr'
+        name: 'Réassurance - Frais de port'
+        alt: 'Réassurance - Frais de port'
+
+    img_reassurances_4_fr:
+        locale: 'fr'
+        name: 'Réassurance - Livraison'
+        alt: 'Réassurance - Livraison'
+
+    img_reassurances_5_fr:
+        locale: 'fr'
+        name: 'Réassurance - Clic & Collect'
+        alt: 'Réassurance - Clic & Collect'
+
+    img_list_links_1_fr:
+        locale: 'fr'
+        name: 'Liste de liens - Display'
+        alt: 'Liste de liens - Display'
+
+    img_list_links_2_fr:
+        locale: 'fr'
+        name: 'Liste de liens - Carte'
+        alt: 'Liste de liens - Carte'
+
+    img_list_links_3_fr:
+        locale: 'fr'
+        name: 'Liste de liens - Autre'
+        alt: 'Liste de liens - Autre'
+
+    img_brands_pca_fr:
+        locale: 'fr'
+        name: 'Marques - PCA'
+        alt: 'Marques - PCA'
+
+    img_brands_pokemon_fr:
+        locale: 'fr'
+        name: 'Marques - Pokémon'
+        alt: 'Marques - Pokémon'

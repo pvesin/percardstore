@@ -1,0 +1,12 @@
+<button
+    id="{{ form.addAll.vars.id }}"
+    name="{{ form.addAll.vars.full_name }}"
+    class="{{ form.addAll.vars.attr.class }} btn btn-dark"
+    data-bb-toggle="wishlist-add-all"
+    {{ sylius_test_html_attribute('wishlist-add-all-to-cart') }}
+    formaction="{{ path('bitbag_sylius_wishlist_plugin_shop_wishlist_add_products', { wishlistId: wishlist.id }) }}"
+>
+    <i class="heart icon"></i>
+    {{ 'sylius.wishlist.add_all_products_to_cart'|trans }}
+</button>
+

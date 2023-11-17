@@ -1,0 +1,53 @@
+/*
+ * [ components / card ]
+ */
+
+// -----------------------------------------------------------------------------
+
+
+// 1. Card Product
+// ----------------------------------------------------
+.Card-product {
+    .Card-product__image-wrapper {
+        position: relative;
+
+        .Card-product__image-hover {
+            transition: all 0.25s ease-out;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        &:hover {
+
+            .Card-product__image-hover {
+                height: 100%;
+            }
+        }
+    }
+
+    &--search {
+        margin: 0.5rem;
+        flex: 0 0 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+
+        @include media-breakpoint-up(sm) {
+            flex: 0 0 calc(25% - 1rem);
+            max-width: calc(25% - 1rem);
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex: 0 0 calc(20% - 1rem);
+            max-width: calc(20% - 1rem);
+        }
+    }
+}
+
+// 2. Card List links
+// ----------------------------------------------------
+.Card-list-links {
+    height: 230px;
+}

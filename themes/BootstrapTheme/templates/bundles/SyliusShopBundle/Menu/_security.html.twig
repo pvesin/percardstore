@@ -1,0 +1,19 @@
+<ul class="nav navbar ml-auto">
+    {% if is_granted('ROLE_USER') %}
+        <li class="nav-item dropdown my-2 my-lg-0 text-uppercase">
+            <a class="nav-link dropdown-toggle text-white d-flex justify-content-center align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    {{ sylius_test_html_attribute('full-name') }}><i class="Icon-account fs-2 me-1"></i> {{ app.user.customer.fullName }}</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item nav-link" href="{{ path('sylius_shop_account_dashboard') }}">{{ 'sylius.ui.my_account'|trans }}</a></li>
+                <li><a class="dropdown-item nav-link sylius-logout-button" href="{{ path('sylius_shop_logout') }}" {{ sylius_test_html_attribute('logout-button') }}>{{ 'sylius.ui.logout'|trans }}</a></li>
+            </ul>
+        </li>
+    {% else %}
+        <li class="nav-item btn-dark">
+            <a class="text-white nav-link text-uppercase d-flex justify-content-center align-items-center" href="{{ path('sylius_shop_login') }}">
+                <i class="Icon-account fs-2 me-1"></i> {{ 'sylius.ui.login'|trans }}
+            </a>
+        </li>
+    {% endif %}
+</ul>
+

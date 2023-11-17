@@ -1,0 +1,44 @@
+App\Entity\Product\Product:
+    product_test_3:
+        code: 'product_test_3'
+        channels: ['@channel_web_store_fr']
+        images: ['@product_test_3_image_1']
+
+App\Entity\Product\ProductTranslation:
+    product_test_3_trans:
+        translatable: '@product_test_3'
+        name: "Dracaufeu TG03/TG30 Carte Pokémon Ultra rare Full Art Neuve VF"
+        slug: 'produit-test-3'
+        locale: 'fr'
+        shortDescription: <identity("Lorem ipsum long")>
+        description: <identity("Lorem ipsum long")>
+
+App\Entity\Channel\ChannelPricing:
+    product_test_3_pricing:
+        channelCode: 'web_store_fr'
+        productVariant: '@product_test_3_variant'
+        price: 3999
+        originalPrice: 3999
+
+App\Entity\Product\ProductVariant:
+    product_test_3_variant:
+        code: 'product_test_3'
+        product: '@product_test_3'
+        onHand: 50
+        tracked: true
+
+App\Entity\Product\ProductVariantTranslation:
+    product_test_3_variant_1_translation:
+        translatable: '@product_test_3_variant'
+        name: "Dracaufeu TG03/TG30 Carte Pokémon Ultra rare Full Art Neuve VF"
+        locale: 'fr'
+
+App\Entity\Product\ProductTaxon:
+    product_test_3_taxon_1:
+        product: '@product_test_3'
+        taxon: '@taxon_single_card'
+
+App\Entity\Product\ProductImage:
+    product_test_3_image_1:
+        type: 'main'
+        path: 'products/product_test_3_1.png'

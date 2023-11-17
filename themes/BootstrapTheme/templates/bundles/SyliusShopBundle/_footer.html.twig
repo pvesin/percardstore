@@ -1,0 +1,15 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<div class="mt-auto">
+    {{ render(path('bitbag_sylius_cms_plugin_shop_block_index_by_section_code', {'sectionCode' : 'reassurances', 'template' : 'cms/_sections/reassurances.html.twig'})) }}
+    <div class="container d-flex align-items-center">
+        <a href="{{ path('sylius_shop_homepage') }}">
+            {{ Image.lazyload('logo', 'logo') }}
+        </a>
+        <span class="flex-grow-1 h-2 bg-primary ms-4"></span>
+    </div>
+    <div class="py-5 container">
+        {{ sylius_template_event('sylius.shop.layout.footer') }}
+    </div>
+    <p class="text-center bg-gray-500 mb-0 p-2">{{ 'sylius.footer.rights'|trans }}</p>
+</div>

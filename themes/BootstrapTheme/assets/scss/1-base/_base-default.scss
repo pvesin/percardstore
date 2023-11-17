@@ -1,0 +1,34 @@
+/*
+ * [ base / default ]
+ */
+
+// -----------------------------------------------------------------------------
+
+
+body,
+html {
+    min-width: 320px;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow: hidden;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Roboto';
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}

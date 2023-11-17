@@ -1,0 +1,10 @@
+{% set isLiked = false %}
+{% if status is same as constant('App\\Controller\\WishlistController::WISHLIST_STATUS_ADD') %}
+    {% set isLiked = false %}
+{% elseif status is same as constant('App\\Controller\\WishlistController::WISHLIST_STATUS_REMOVE') %}
+    {% set isLiked = true %}
+{% endif %}
+
+<span class="js-wishlist-action" data-product-id="{{ product.id }}">
+    <i class="js-wishlist-icon Heart-like cursor-pointer {% if isLiked %}js-liked{% endif %}"></i>
+</span>

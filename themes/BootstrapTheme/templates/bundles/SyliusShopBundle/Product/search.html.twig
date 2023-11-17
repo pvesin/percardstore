@@ -1,0 +1,27 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% block content %}
+    <div class="flex-flow-centerY mb-5">
+        <h1 class="Title Title--decoration">{{ 'sylius.search.results'|trans }}</h1>
+    </div>
+
+    {% if resources.data|length > 0 %}
+        <div class="row" id="products" {{ sylius_test_html_attribute('products') }}>
+            {% for product in resources.data %}
+                <div class="col-6 col-md-6 col-lg-3 mb-3">
+                    {% include '@SyliusShop/Product/_box.html.twig' %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% include '@SyliusShop/Product/Index/_pagination.html.twig' %}
+
+        {{ sylius_template_event('sylius.shop.product.index.before_pagination', {'products': resources.data}) }}
+    {% else %}
+        {{ messages.info('sylius.ui.no_results_to_display') }}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

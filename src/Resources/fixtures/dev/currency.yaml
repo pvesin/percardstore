@@ -1,0 +1,3 @@
+App\Entity\Currency\Currency:
+  currency_eur:
+    code: EUR

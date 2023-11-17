@@ -1,0 +1,20 @@
+{
+  "entrypoints": {
+    "admin-entry": {
+      "css": [
+        "/build/admin/admin-entry.ca7c1d82.css"
+      ],
+      "js": [
+        "/build/admin/admin-entry.4ec47f9f.js"
+      ]
+    },
+    "bitbag-cms-admin": {
+      "css": [
+        "/build/admin/bitbag-cms-admin.4676b4a5.css"
+      ],
+      "js": [
+        "/build/admin/bitbag-cms-admin.2b3c96d8.js"
+      ]
+    }
+  }
+}

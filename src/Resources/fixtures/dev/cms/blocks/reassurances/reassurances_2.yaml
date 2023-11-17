@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_2:
+        code: 'reassurances_2'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_2_trans:
+        translatable: '@reassurances_2'
+        locale: 'fr'
+        name: "MODES DE PAIEMENT"
+        content: "SÉCURISÉS"

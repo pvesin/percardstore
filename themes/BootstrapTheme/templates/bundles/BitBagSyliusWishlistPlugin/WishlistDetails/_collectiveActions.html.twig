@@ -1,0 +1,16 @@
+{% if app.user %}
+    {% set wishlists = findAllByShopUserAndToken(app.user) %}
+{% else %}
+    {% set wishlists = findAllByAnonymous() %}
+{% endif %}
+<div class="bb-colective-actions mb-2">
+    <div class="wishlist-dropdown-menu">
+        <div class="wishlist-dropdown-menu__item">
+            <button type="submit" class="btn btn-primary" {{ sylius_test_html_attribute('wishlist-add-selected-to-cart') }} formaction="{{ path('bitbag_sylius_wishlist_plugin_shop_wishlist_add_selected_products', { wishlistId: wishlist.id }) }}">
+                <i class="cart icon"></i>
+                {{ 'sylius.wishlist.add_selected_products_to_cart'|trans }}
+            </button>
+        </div>
+        <input type="hidden" data-bb-current-wishlist-id="{{ wishlist.id }}">
+    </div>
+</div>

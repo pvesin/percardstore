@@ -1,0 +1,100 @@
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: "%kernel.project_dir%/public"
+                cache_prefix: "media/cache"
+    filter_sets:
+        original: ~
+        original_low:
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 90, progressive: true }
+
+        logo:
+            filters:
+                relative_resize:
+                    heighten: 60
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 90, progressive: true }
+        logo_low:
+            filters:
+                relative_resize:
+                    heighten: 60
+            post_processors:
+                pngquant: { quality: "15-20" }
+                jpegoptim: { strip_all: true, max: 20, progressive: true }
+
+        sylius_menu_locale:
+            filters:
+                relative_resize:
+                    heighten: 16
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 90, progressive: true }
+        sylius_menu_locale_low:
+            filters:
+                relative_resize:
+                    heighten: 16
+            post_processors:
+                pngquant: { quality: "15-20" }
+                jpegoptim: { strip_all: true, max: 20, progressive: true }
+
+        sylius_homepage_banner:
+            filters:
+                thumbnail: { size: [ 603, 435 ], mode: outbound }
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 90, progressive: true }
+        sylius_homepage_banner_low:
+            filters:
+                thumbnail: { size: [ 603, 435 ], mode: outbound }
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 20, progressive: true }
+
+        heighten_112:
+            filters:
+                relative_resize:
+                    heighten: 112
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 90, progressive: true }
+        heighten_112_low:
+            filters:
+                relative_resize:
+                    heighten: 112
+            post_processors:
+                pngquant: { quality: "15-20" }
+                jpegoptim: { strip_all: true, max: 20, progressive: true }
+
+        heighten_260:
+            filters:
+                relative_resize:
+                    heighten: 260
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 90, progressive: true }
+        heighten_260_low:
+            filters:
+                relative_resize:
+                    heighten: 260
+            post_processors:
+                pngquant: { quality: "15-20" }
+                jpegoptim: { strip_all: true, max: 20, progressive: true }
+
+        heighten_412:
+            filters:
+                relative_resize:
+                    heighten: 412
+            post_processors:
+                pngquant: { quality: "65-70" }
+                jpegoptim: { strip_all: true, max: 90, progressive: true }
+        heighten_412_low:
+            filters:
+                relative_resize:
+                    heighten: 412
+            post_processors:
+                pngquant: { quality: "15-20" }
+                jpegoptim: { strip_all: true, max: 20, progressive: true }

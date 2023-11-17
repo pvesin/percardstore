@@ -1,0 +1,41 @@
+{% extends '@SyliusShop/layout.html.twig' %}
+
+{% import '@SyliusShop/Common/Macro/messages.html.twig' as messages %}
+
+{% block content %}
+    <h1 class="Title--decoration fs-1 d-none d-md-block mb-3">
+        {{ 'sylius.wishlist.title'|trans }}
+    </h1>
+    {% if sylius.channel is not null %}
+        {% set wishlists = findAllByAnonymousAndChannel(sylius.channel) %}
+    {% else %}
+        {% set wishlists = findAllByAnonymous() %}
+    {% endif %}
+
+    {% if wishlist.wishlistProducts.count > 0 %}
+        <a href="{{ path('bitbag_sylius_wishlist_plugin_shop_wishlist_clean', {'wishlistId': wishlist.id}) }}" class="bitbag-clean-wishlist btn btn-dark">
+            <i class="fas fa-trash me-2"></i>{{ 'sylius.wishlist.delete_all_products'|trans }}
+        </a>
+
+        {{ form_start(form, { attr: { class: 'bb-wishlist ui form', id: "wishlist_form" } }) }}
+
+        <div class="" id="wishlist">
+            {% for itemForm in form.items %}
+                {% include "@BitBagSyliusWishlistPlugin/WishlistDetails/_item.html.twig" %}
+                <input type="hidden" name="wishlist_collection[items][{{ loop.index - 1 }}][variant]" value="{{ itemForm.vars.data.wishlistProduct.variant.id }}"/>
+            {% endfor %}
+
+            <div class="bb-wishlist-actions mt-3">
+                {% include "@BitBagSyliusWishlistPlugin/WishlistDetails/_collectiveActions.html.twig" %}
+                {% include "@BitBagSyliusWishlistPlugin/WishlistDetails/_globalActions.html.twig" %}
+            </div>
+            <input type="hidden" data-bb-csrf="{{ csrf_token('some-name') }}"/>
+        </div>
+
+        {{ form_row(form._token) }}
+        {{ form_end(form, {'render_rest': false} ) }}
+    {% else %}
+        {{ messages.info('bitbag_sylius_wishlist_plugin.ui.your_wishlist_is_empty'|trans) }}
+    {% endif %}
+
+{% endblock %}

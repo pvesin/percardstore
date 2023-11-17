@@ -1,0 +1,80 @@
+$utilities: map-merge(
+        $utilities,
+        (
+            "width": map-merge(
+                    map-get($utilities, "width"),
+                    (
+                        values: map-merge(
+                                map-get(map-get($utilities, "width"), "values"),
+                                (2: 0.5rem, 4: 1rem, 6: 1.5rem, 8: 2rem, 20: 5rem, 40: 10rem),
+                        ),
+                    ),
+            ),
+            "height": map-merge(
+                    map-get($utilities, "height"),
+                    (
+                        values: map-merge(
+                                map-get(map-get($utilities, "height"), "values"),
+                                (2: 0.5rem, 4: 1rem, 6: 1.5rem, 8: 2rem, 12: 3rem, 32: 8rem),
+                        ),
+                    ),
+            ),
+            "max-width": map-merge(
+                    map-get($utilities, "max-width"),
+                    (
+                        values: map-merge(
+                                map-get(map-get($utilities, "max-width"), "values"),
+                                (320: 320px, 450: 450px, 575: 575px),
+                        ),
+                    ),
+            )
+        )
+);
+
+// Modify utilities only above this import
+@import "~bootstrap/scss/utilities/api";
+
+
+// Generating Bootstrap classes
+// ----------------------------------------------------
+
+//Shades of Gray
+@each $key, $value in $grays {
+    .bg-gray-#{$key}{
+        background-color: $value !important;
+    }
+
+    .text-gray-#{$key}{
+        color: $value !important;
+    }
+}
+
+.zindex-modal-backdrop {
+    z-index: $zindex-modal-backdrop;
+}
+
+.zindex-modal {
+    z-index: $zindex-modal;
+}
+
+
+// Generating responsive classes
+// ----------------------------------------------------
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .flex-1#{$infix} {
+            flex: 1 1 0 !important;
+        }
+
+        .w#{$infix}\-1\/5 {
+            width: 20% !important;
+        }
+
+        .w#{$infix}\-25 {
+            width: 25% !important;
+        }
+    }
+}

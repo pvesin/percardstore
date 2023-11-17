@@ -1,0 +1,11 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    about_us:
+        code: 'about_us'
+        channels: ['@channel_web_store_fr']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    about_us_trans:
+        translatable: '@about_us'
+        locale: 'fr'
+        name: "PerCardStore"
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non consectetur ipsum, eget ornare nulla. Integer accumsan felis magna, ut commodo eros pharetra sed. Pellentesque lorem velit, facilisis quis vehicula quis, pretium id enim. Fusce eu feugiat erat. Nunc semper sem sed libero laoreet rutrum. Donec non mollis nisi. Nulla molestie quam at aliquam scelerisque. Nullam dictum ligula nec nulla."

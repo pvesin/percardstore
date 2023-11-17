@@ -1,0 +1,9 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<div class="row">
+    {% for image in media %}
+        <div class="col-3">
+            {{ Image.lazyload(image.code, 'logo', {classes: 'd-block mx-auto mb-2'}) }}
+        </div>
+    {% endfor %}
+</div>

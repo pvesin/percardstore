@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_3:
+        code: 'reassurances_3'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_3_trans:
+        translatable: '@reassurances_3'
+        locale: 'fr'
+        name: "FRAIS DE PORT"
+        content: "MINIMUMS"

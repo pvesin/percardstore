@@ -1,0 +1,30 @@
+/*
+ * [ components / button ]
+ */
+
+// -----------------------------------------------------------------------------
+
+.Button {
+    @extend .p-2;
+    border: none;
+    background-color: white;
+    transition: all 0.25s ease-out;
+}
+
+$button-style-variants: (
+    ('base', $black, $white, $white, $black),
+    ('white', $white, $primary, $primary, $white),
+    ('primary', $primary, $white, $white, $primary),
+);
+
+@each $modifier, $background, $color, $hover-bg, $hover-text in $button-style-variants {
+    .Button.Button--#{$modifier} {
+        background-color: $background;
+        color: $color;
+
+        &:hover {
+            background-color: $hover-bg;
+            color: $hover-text;
+        }
+    }
+}

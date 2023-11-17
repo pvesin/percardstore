@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_numbers_3:
+        code: 'reassurances_numbers_3'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances_numbers']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_numbers_3_trans:
+        translatable: '@reassurances_numbers_3'
+        locale: 'fr'
+        name: "127"
+        content: "produits"

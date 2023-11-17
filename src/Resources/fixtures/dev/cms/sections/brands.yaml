@@ -1,0 +1,9 @@
+BitBag\SyliusCmsPlugin\Entity\Section:
+    brands:
+        code: 'brands'
+
+BitBag\SyliusCmsPlugin\Entity\SectionTranslation:
+    brands_trans:
+        translatable: '@brands'
+        locale: 'fr'
+        name: "Marques"

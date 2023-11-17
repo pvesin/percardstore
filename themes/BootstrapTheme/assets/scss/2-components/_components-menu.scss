@@ -1,0 +1,14 @@
+/*
+ * [ components / menu ]
+ */
+
+// -----------------------------------------------------------------------------
+
+.js-menu {
+    transform: translateX(100%);
+    transition: all 0.25s ease-out;
+
+    &.isActive {
+        transform: translateX(0);
+    }
+}

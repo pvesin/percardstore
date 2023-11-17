@@ -1,0 +1,14 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<div class="row justify-content-center mb-5">
+    {% for block in blocks %}
+        <div class="col-12 col-sm-6 col-md-4 position-relative mb-4">
+            <a href="{{ block.link }}" class="Card-list-links d-block w-100 overflow-hidden">
+                {{ Image.lazyload(block.code, 'heighten_260', {classes: 'w-100 h-100 object-fit-cover rotate-scale-hover'}) }}
+                <h2 class="Underline-wrapper position-absolute top-50 start-50 translate-middle text-primary">
+                    <span class="Underline Underline--full Underline--white">{{ block.name }}</span>
+                </h2>
+            </a>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,30 @@
+<div class="container-full bg-gray-200 py-5 mb-5">
+    <div class="container">
+        <h2 class="Title--decoration fs-1 d-md-none">{{ block.name }}</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="Title--decoration fs-1 d-none d-md-block">{{ block.name }}</h2>
+            <a href="{{ block.link }}" class="has-underline has-underline--invert fw-bold">{{ block.content }}</a>
+            <div class="glide__arrows d-flex text-primary" data-glide-el="controls" data-relocate-arrows-target="carousel-products-{{ block.code }}">
+                <i class="Icon-arrow-left fs-2" data-glide-dir="<"></i>
+                <div class="glide__bullets mx-4 d-flex align-items-center" data-glide-el="controls[nav]" data-relocate-bullets-target ="carousel-products-{{ block.code }}">
+                    {% for product in block.products %}
+                        <span class="glide__bullet" data-glide-dir="={{ loop.index0 }}"></span>
+                    {% endfor %}
+                </div>
+                <i class="Icon-arrow-right  fs-2" data-glide-dir=">"></i>
+            </div>
+        </div>
+        <div class="glide js-init-slider position-relative" data-slider-ref="carousel-products"
+             data-relocate-arrows-trigger="carousel-products-{{ block.code }}" data-relocate-bullets-trigger="carousel-products-{{ block.code }}">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    {% for product in block.products %}
+                        <li class="glide__slide">
+                            {% include '@SyliusShop/Product/_box.html.twig' %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+app_shop_ajax_cart:
+    resource: "ajax/cart.yaml"
+    prefix: /cart
+
+app_shop_ajax_taxon:
+    resource: "ajax/taxon.yaml"
+    prefix: /taxon
+
+app_shop_ajax_product:
+    resource: "ajax/product.yaml"
+    prefix: /product

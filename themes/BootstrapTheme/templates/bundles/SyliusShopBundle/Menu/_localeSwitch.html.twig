@@ -1,0 +1,21 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<ul class="nav navbar">
+
+{% if locales|length > 1 %}
+    <li class="nav-item dropdown" id="sylius-locale-selector" {{ sylius_test_html_attribute('locale-selector') }}>
+        <a class="btn nav-link dropdown-toggle sylius-active-locale" type="button" data-bs-toggle="dropdown" {{ sylius_test_html_attribute('active-locale') }}>
+            {{ Image.lazyload('flag_' ~ active, 'sylius_menu_locale', {classes: 'border border-white'}) }}
+        </a>
+        <div class="dropdown-menu min-w-auto">
+            {% for code in locales %}
+                {% if code is not same as(active) %}
+                    <a class="dropdown-item sylius-available-locale" href="{{ path('sylius_shop_switch_locale', {'code': code}) }}" {{ sylius_test_html_attribute('available-locale') }}>
+                        {{ Image.lazyload('flag_' ~ code, 'sylius_menu_locale') }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </li>
+{% endif %}
+</ul>

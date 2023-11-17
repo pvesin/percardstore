@@ -1,0 +1,35 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<i class="js-menu-button d-lg-none fas fa-bars fs-1 ms-2"></i>
+
+<div class="js-menu position-fixed inset-0 bg-white d-flex flex-column pt-3 zindex-modal">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 px-3">
+        {{ Image.lazyload('logo', 'logo', {'classes': 'w-75'}) }}
+        <i class="js-menu-close fas fa-close fs-1"></i>
+    </div>
+    <div class="position-relative h-100 px-3">
+        {{ render(controller('sylius.controller.shop.locale_switch::renderAction')) }}
+        <ul>
+            {% if is_granted('ROLE_USER') %}
+                <li class="border-bottom py-3"><a class="" href="{{ path('sylius_shop_account_dashboard') }}">{{ 'sylius.ui.my_account'|trans }}</a></li>
+                <li class="border-bottom py-3"><a class="sylius-logout-button" href="{{ path('sylius_shop_logout') }}" {{ sylius_test_html_attribute('logout-button') }}>{{ 'sylius.ui.logout'|trans }}</a></li>
+            {% else %}
+                <li class="border-bottom py-3">
+                    <a class="text-uppercase d-flex justify-content-center align-items-center" href="{{ path('sylius_shop_login') }}">
+                        <i class="Icon-account fs-2 me-1"></i> {{ 'sylius.ui.login'|trans }}
+                    </a>
+                </li>
+            {% endif %}
+            <li class="border-bottom py-3">
+                <a class="text-uppercase d-flex justify-content-center align-items-center" href="{{ path('asdoria_shop_quote_request_index') }}">
+                    <i class="fas fa-archive fs-2 me-1"></i> {{ 'asdoria_quote_request.ui.shop.title'|trans }}
+                </a>
+            </li>
+            <li class="border-bottom py-3">
+                <a class="text-uppercase d-flex justify-content-center align-items-center" href="{{ path('bitbag_sylius_wishlist_plugin_shop_wishlist_list_products') }}">
+                    <i class="fas fa-heart fs-2 me-1"></i> {{ 'sylius.wishlist.title'|trans }}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

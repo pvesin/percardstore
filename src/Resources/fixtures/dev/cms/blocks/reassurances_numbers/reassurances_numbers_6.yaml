@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_numbers_6:
+        code: 'reassurances_numbers_6'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances_numbers']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_numbers_6_trans:
+        translatable: '@reassurances_numbers_6'
+        locale: 'fr'
+        name: "20400"
+        content: "épuisés/indispo en stock volumes"

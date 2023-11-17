@@ -1,0 +1,33 @@
+{
+  "entrypoints": {
+    "app": {
+      "css": [
+        "/build/shop/793.1f0d4b2a.min.css",
+        "/build/shop/app.1f0d4b2a.min.css"
+      ],
+      "js": [
+        "/build/shop/793.1f0d4b2a.min.js",
+        "/build/shop/app.1f0d4b2a.min.js"
+      ]
+    },
+    "shop-entry": {
+      "js": [
+        "/build/shop/755.1f0d4b2a.min.js",
+        "/build/shop/303.1f0d4b2a.min.js",
+        "/build/shop/shop-entry.1f0d4b2a.min.js"
+      ],
+      "css": [
+        "/build/shop/303.1f0d4b2a.min.css",
+        "/build/shop/shop-entry.1f0d4b2a.min.css"
+      ]
+    },
+    "bitbag-cms-shop": {
+      "css": [
+        "/build/shop/bitbag-cms-shop.1f0d4b2a.min.css"
+      ],
+      "js": [
+        "/build/shop/bitbag-cms-shop.1f0d4b2a.min.js"
+      ]
+    }
+  }
+}

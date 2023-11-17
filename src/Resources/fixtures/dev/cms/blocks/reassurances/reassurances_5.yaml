@@ -1,0 +1,12 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    reassurances_5:
+        code: 'reassurances_5'
+        channels: ['@channel_web_store_fr']
+        sections: ['@reassurances']
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    reassurances_5_trans:
+        translatable: '@reassurances_5'
+        locale: 'fr'
+        name: "CLIC"
+        content: "& COLLECT"

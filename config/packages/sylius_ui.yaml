@@ -1,0 +1,65 @@
+sylius_ui:
+    events:
+        sylius.shop.layout.topbar:
+            blocks:
+                quote:
+                    template: "@SyliusShop/Layout/Header/_quote.html.twig"
+                    priority: 10
+                wishlist:
+                    template: "@SyliusShop/Layout/Header/_wishlist.html.twig"
+                    priority: 10
+                cart:
+                    template: "@SyliusShop/Layout/Header/_cart.html.twig"
+                    priority: 8
+
+        sylius.shop.layout.header.grid:
+            blocks:
+                cart:
+                    enabled: false
+
+        sylius.shop.layout.header.content:
+            blocks:
+                search:
+                    template: "@SyliusShop/Layout/Header/Content/_search.html.twig"
+                    priority: 20
+                cart:
+                    template: "@SyliusShop/Layout/Header/Content/_cart.html.twig"
+                    priority: 15
+                menu:
+                    template: "@SyliusShop/Layout/Header/Content/_menu.html.twig"
+                    priority: 10
+
+        sylius.shop.homepage:
+            blocks:
+                banner:
+                    template: "@SyliusShop/Homepage/_banner.html.twig"
+                    priority: 60
+                reassurances_numbers:
+                    template: "@SyliusShop/Homepage/_reassurancesNumbers.html.twig"
+                    priority: 55
+                latest_products_carousel:
+                    template: "@SyliusShop/Homepage/_latestProductsCarousel.html.twig"
+                    priority: 50
+                list_links:
+                    template: "@SyliusShop/Homepage/_listLinks.html.twig"
+                    priority: 40
+                featured_products:
+                    template: "@SyliusShop/Homepage/_featuredProducts.html.twig"
+                    priority: 30
+                about_us:
+                    template: "@SyliusShop/Homepage/_aboutUs.html.twig"
+                    priority: 20
+                latest_products:
+                    enabled: false
+                newsletter:
+                    enabled: false
+                products_grid:
+                    enabled: false
+
+        sylius.shop.layout.footer:
+            blocks:
+#                grid:
+#                    template: "@SyliusShop/Layout/Footer/_grid.html.twig"
+#                    priority: 20
+                content:
+                    enabled: false

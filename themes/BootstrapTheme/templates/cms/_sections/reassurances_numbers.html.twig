@@ -1,0 +1,8 @@
+<div class="row mb-1">
+    {% for block in blocks %}
+        <div class="col-4 col-md-2 text-center mb-4">
+            <h2 class="js-animation-number" data-number-target="{{ block.name }}">0</h2>
+            <p class="m-0">{{ block.content }}</p>
+        </div>
+    {% endfor %}
+</div>

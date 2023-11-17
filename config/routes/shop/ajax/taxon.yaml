@@ -1,0 +1,17 @@
+sylius_shop_ajax_taxon_by_name_phrase:
+    path: /search
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.taxon::indexAction
+        _format: json
+        _sylius:
+            serialization_groups: [Autocomplete, Default]
+            permission: true
+            repository:
+                method: findByNamePart
+                arguments:
+                    phrase: expr:service('request_stack').getCurrentRequest().query.get('phrase', '')
+                    locale: null
+                    limit: 25
+    options:
+        expose: true

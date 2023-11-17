@@ -1,0 +1,17 @@
+{
+    "name": "app/bootstrap-custom-theme",
+    "description": "Bootstrap custom theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Philippe Vesin",
+            "email": "philippe.vesin@asdoria.com"
+        }
+    ],
+    "extra": {
+        "sylius-theme": {
+            "title": "Bootstrap Custom Theme",
+            "parents": [ "sylius/bootstrap-theme" ]
+        }
+    }
+}

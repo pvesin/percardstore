@@ -1,0 +1,86 @@
+{% macro lazyload(code, variantFilter, options = {}) %}
+    {% import _self as img %}
+
+    {% set defaultOptions = {
+        classes: '',
+        attr: {},
+        pictureClasses: '',
+        hasLow: true
+    } %}
+    {% set options = defaultOptions|merge(options) %}
+
+    <picture class="{{ options.pictureClasses }}">
+        {% set objectImage = get_media(code) %}
+        {% if objectImage is not empty %}
+            {% if objectImage.path is not empty %}
+                <source data-srcset="{{ img.path(objectImage, variantFilter) }}">
+            {% endif %}
+            <img {% if options.hasLow == true %}src="{{ img.path(objectImage, variantFilter ~ '_low') }}"{% endif %}
+                 data-src="{{ img.path(objectImage, variantFilter ~ '_low') }}"
+                 alt="{{ objectImage.alt ?? objectImage.name }}"
+                 class="js-lazyload {{ options.classes }}"
+                    {% for key, value in options.attr %}
+                        {{ key ~ "=" ~ value }}
+                    {% endfor %}
+            >
+        {% endif %}
+    </picture>
+{% endmacro %}
+
+{% macro all(code, variantFilter, options = {}) %}
+    {% import _self as img %}
+
+    {% set defaultOptions = {
+        classes: '',
+        attr: {},
+        pictureClasses: '',
+        hasLow: true
+    } %}
+    {% set options = defaultOptions|merge(options) %}
+
+    {% if code is not empty %}
+        <picture class="{{ options.pictureClasses }}">
+            {% set breakpoints = {
+                '_sm': '(max-width: 575px)',
+                '_md': '(max-width: 767px)',
+                '_lg': '(max-width: 1024px)'
+            } %}
+            {% set objectImage = get_media(code) %}
+            {% if objectImage is not empty %}
+                {% if objectImage.path is not empty %}
+                    {% for key, value in breakpoints %}
+                        <source data-srcset="{{ img.path(objectImage, variantFilter ~ key) }}"
+                                media="{{ value }}">
+                    {% endfor %}
+                    <source data-srcset="{{ img.path(objectImage, variantFilter) }}">
+                {% endif %}
+                <img {% if options.hasLow == true %}src="{{ img.path(objectImage, variantFilter ~ '_low') }}"{% endif %}
+                     data-src="{{ img.path(objectImage, variantFilter ~ '_low') }}"
+                     alt="{{ objectImage.alt ?? objectImage.name }}"
+                     class="js-lazyload {{ options.classes }}"
+                        {% for key, value in options.attr %}
+                            {{ key ~ "=" ~ value }}
+                        {% endfor %}
+                >
+            {% endif %}
+        </picture>
+    {% endif %}
+{% endmacro %}
+
+{% macro path(objectImage, variantFilter) %}
+    {{ objectImage.path|imagine_filter(variantFilter) }}
+{% endmacro %}
+
+{% macro webpPath(objectImage, variantFilter) %}
+    {{ objectImage.webpPath|imagine_filter(variantFilter) }}
+{% endmacro %}
+
+{# ------------------------------------------------------------------------------------------------------------------ #}
+{# For other context that CMS erebor (ex: image of category in Sylius) #}
+{% macro srcset(path, variantFilter) %}
+    {% import _self as img %}
+    data-srcset="{{ path|imagine_filter(variantFilter ~ '_sm') }} 575w,
+    {{ path|imagine_filter(variantFilter ~ '_md') }} 767w,
+    {{ path|imagine_filter(variantFilter ~ '_lg') }} 1024w,
+    {{ path|imagine_filter(variantFilter) }} 1025w"
+{% endmacro %}

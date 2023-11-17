@@ -1,0 +1,9 @@
+BitBag\SyliusCmsPlugin\Entity\Section:
+    reassurances_numbers:
+        code: 'reassurances_numbers'
+
+BitBag\SyliusCmsPlugin\Entity\SectionTranslation:
+    reassurances_numbers_trans:
+        translatable: '@reassurances_numbers'
+        locale: 'fr'
+        name: "Réassurances - Nombres"

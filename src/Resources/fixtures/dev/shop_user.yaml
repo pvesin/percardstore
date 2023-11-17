@@ -1,0 +1,17 @@
+App\Entity\Customer\Customer:
+    customer1:
+        email: 'sylius@example.com'
+        emailCanonical: 'sylius@example.com'
+        firstName: 'John'
+        lastName: 'Doe'
+
+App\Entity\User\ShopUser:
+    shop_user1:
+        customer: '@customer1'
+        username: 'sylius'
+        usernameCanonical: 'sylius'
+        enabled: '1'
+        plainPassword: 'sylius'
+        email: 'sylius@example.com'
+        emailCanonical: 'sylius@example.com'
+        encoderName: 'argon2i'

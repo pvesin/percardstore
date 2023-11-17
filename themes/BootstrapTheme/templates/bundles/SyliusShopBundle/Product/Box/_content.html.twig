@@ -1,0 +1,41 @@
+{% import "@SyliusShop/Common/Macro/money.html.twig" as money %}
+
+{% set variant = product|sylius_resolve_variant %}
+{% set inStock = product.enabledVariants and not product.simple or variant.onHold - variant.onHand != 0 %}
+
+<div class="Card-product border-0" {{ sylius_test_html_attribute('product') }}>
+    <div class="Card-product__image-wrapper mb-2">
+        {% include '@SyliusShop/Product/_mainImage.html.twig' with {'product': product, 'class': 'd-block h-100 mx-auto', 'filter': 'heighten_260'} %}
+        <div class="Card-product__image-hover bg-primary d-flex flex-column justify-content-center text-center px-4 fw-bold text-uppercase">
+            <a href="{{ path('sylius_shop_product_show', {'slug': product.slug, '_locale': product.translation.locale}) }}"
+               class="Button Button--primary border border-white">{{ 'sylius.shop.discover'|trans }}</a>
+            {{ render(path('sylius_shop_partial_cart_add_item', {
+                'template': '@SyliusShop/Product/Box/_addToCart.html.twig',
+                'productId': product.id,
+            })) }}
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+{#        {% include '@SyliusShop/Product/_starRating.html.twig' %}#}
+        {{ render(path('sylius_shop_check_wishlist', {'productId': product.id})) }}
+    </div>
+    <div class="card-body fw-bold text-uppercase" {{ sylius_test_html_attribute('product-content') }}>
+        <h3 class="sylius-product-name fw-bold mb-2 fs-6" {{ sylius_test_html_attribute('product-name', product.name) }}>{{ product.name }}</h3>
+        {% if inStock %}
+            <p class="text-success mb-0">
+                <span class="d-inline-block rounded bg-success me-1 w-2 h-2"></span>
+                {{ 'sylius.product.in_stock'|trans }}
+            </p>
+        {% else %}
+            <p class="text-danger mb-0">
+                <span class="d-inline-block rounded bg-danger me-1 w-2 h-2"></span>
+                {{ 'sylius.product.out_of_stock'|trans }}
+            </p>
+        {% endif %}
+        {% if not product.variants.empty() %}
+            <span class="sylius-product-price" {{ sylius_test_html_attribute('product-price') }}>
+                {{ money.calculatePrice(product|sylius_resolve_variant) }}
+            </span>
+        {% endif %}
+    </div>
+</div>

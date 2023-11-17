@@ -1,0 +1,47 @@
+sylius:
+    shop:
+        discover: "DÉCOUVRIR"
+        see_all_products: "VOIR TOUS LES PRODUITS"
+    topbar:
+        information: "Frais de port à 0,01€"
+    homepage:
+        banner_title: "TITRE BANNIÈRE"
+        banner_content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod. Nonumy eirmod."
+        latest_product: "NOUVEAUTÉS"
+        brands: "MARQUES"
+    product:
+        in_stock: "En stock"
+        out_of_stock: "Indisponible"
+    cart:
+        my_cart: "MON PANIER"
+        your_cart_is_currently_empty: "Votre panier est actuellement vide."
+        item_added: "Ajouté"
+        delivery: "Livraison"
+    search:
+        results: "Résultats de recherche"
+        placeholder: "Rechercher..."
+        suggestions: "Suggestions"
+        no_taxon: "Aucune suggestion trouvée"
+        no_product: "Aucun produit trouvé"
+        no_result: "Aucun résulat"
+        products_of_taxon: "Produits de la catégorie \"%taxonName%\""
+        warning: "Entrer au moins %minChar% caractères"
+    wishlist:
+        title: "Favoris"
+        delete_all_products: "Supprimer cette liste"
+        add_selected_products_to_cart: "Ajouter les produits sélectionnés au panier"
+        add_all_products_to_cart: "Ajouter tous les produits au panier"
+    footer:
+        rights: "Tous droits réservés PerCardStore © 2023"
+        first_column_title: "ADRESSE"
+        second_column_title: "CATALOGUE"
+        third_column_title: "BOUTIQUE"
+        fourth_column_title: "SERVICE CLIENT"
+        follow_us: "SUIVEZ-NOUS"
+        address:
+            part_1: "1 rue test"
+            part_2: "73000 Chambéry"
+            part_3: "Tél: 06 06 06 06 06"
+app:
+    base:
+        name: "PerCardStore"

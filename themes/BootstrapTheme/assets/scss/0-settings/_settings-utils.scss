@@ -1,0 +1,134 @@
+/*
+ * [ settings / utils ]
+ */
+
+// -----------------------------------------------------------------------------
+
+.min-w-auto {
+    min-width: auto;
+}
+
+.flex-flow-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-flow-between {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.flex-flow-centerY {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.rotate-scale-hover:hover {
+    transform: rotate(6deg) scale(1.3);
+    transition: all 0.25s ease-out;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.transition-fast {
+    transition: all 0.25s ease-out;
+}
+
+$z_index: (
+    '5': 5,
+    '6': 6,
+    'max': 9999,
+);
+@each $name, $index in $z_index {
+    .z-#{$name} {
+        z-index: $index;
+    }
+}
+
+.bg-white-75 {
+    background-color: hsla(0,0%,100%,.75);
+}
+
+.inset-0 {
+    inset: 0;
+}
+
+.mh-cart-widget {
+    max-height: 32rem;
+}
+
+.outline-none {
+    outline: none;
+}
+
+.backdrop-brightness-95 {
+    --tw-backdrop-brightness: brightness(.95);
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+.has-underline {
+    display: inline-block;
+    position: relative;
+
+    &:after {
+        content: '';
+        height: 3px;
+        top: calc(100% - 3px);
+        background-color: $primary;
+        transition: all 0.25s ease-out;
+        position: absolute;
+        left: 0;
+        width: 0;
+    }
+
+    &:hover:after {
+        width: 100%;
+    }
+
+    &:not(:hover):after {
+        right: 0;
+        left: auto;
+    }
+
+    &.has-underline.isActive:after {
+        width: 100%;
+        right: 0;
+        left: 0;
+    }
+
+    &--invert {
+        &:after {
+            width: 100%;
+            left: 0;
+        }
+
+        &:hover:after {
+            width: 0;
+        }
+    }
+
+    $underline_colors: (
+        'white': $white,
+    );
+
+    @each $modifier, $color in $underline_colors {
+        &--#{$modifier} {
+            &:after {
+                background-color: $color;
+            }
+        }
+    }
+}

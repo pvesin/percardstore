@@ -1,0 +1,35 @@
+/*
+ * [ components / underline ]
+ */
+
+// -----------------------------------------------------------------------------
+
+$colors: (
+    'white': $white
+);
+
+.Underline-wrapper {
+    transform: translateX(1rem);
+}
+
+.Underline {
+    position: relative;
+    line-height: 1;
+    padding-left: 1rem;
+    box-shadow: inset 0 -1.5rem $primary;
+    -webkit-box-decoration-break: clone;
+    -o-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    @each $key, $value in $colors {
+        &--#{$key} {
+            box-shadow: inset 0 -1.5rem $value;
+        }
+
+        &--full {
+            padding: 0 1rem;
+            box-shadow: inset 0 5rem $value;
+        }
+    }
+}
+

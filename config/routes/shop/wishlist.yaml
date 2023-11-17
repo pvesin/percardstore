@@ -1,0 +1,5 @@
+sylius_shop_check_wishlist:
+    path: /check/{productId}
+    methods: [GET]
+    defaults:
+        _controller: app.controller.wishlist::checkWishlist

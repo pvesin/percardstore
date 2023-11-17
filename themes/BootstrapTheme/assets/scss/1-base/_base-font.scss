@@ -1,0 +1,17 @@
+/*
+ * [ base / font ]
+ */
+
+// -----------------------------------------------------------------------------
+
+$fonts: (
+                ('Roboto', 300, 'Light'),
+                ('Roboto', 400, 'Regular'),
+                ('Roboto', 700, 'Bold'),
+);
+
+@each $nameFont, $weight, $variant in $fonts {
+    @include fontFace($nameFont, $weight, $variant)
+}
+
+@include icomoon()

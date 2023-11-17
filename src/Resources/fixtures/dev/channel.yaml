@@ -1,0 +1,17 @@
+App\Entity\Channel\Channel:
+  channel_web_store_fr:
+    code: web_store_fr
+    name: Boutique en ligne (fr)
+    description: "Thème Sylius"
+    hostname: sy-pokemax.local
+    # Todo: put your email
+    contactEmail: philippe.vesin@asdoria.com
+    enabled: 1
+    defaultLocale: "@locale_fr"
+    themeName: "app/bootstrap-custom-theme"
+    baseCurrency: "@currency_eur"
+    menuTaxon: "@taxon_display"
+    defaultTaxZone: "@zone_europe"
+    tax_calculation_strategy: order_items_based
+    locales: ["@locale_fr", "@locale_en"]
+

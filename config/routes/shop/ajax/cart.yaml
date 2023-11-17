@@ -1,0 +1,46 @@
+sylius_shop_ajax_cart_summary:
+    path: /summary
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.order::summaryAction
+        _sylius:
+            template: "@SyliusShop/Cart/summary.html.twig"
+            form: Sylius\Bundle\OrderBundle\Form\Type\CartType
+        _format: json
+    options:
+        expose: true
+
+sylius_shop_ajax_cart_add_item_immediately:
+    path: /add-immediately
+    methods: [POST]
+    defaults:
+        _controller: sylius.controller.order_item::addAction
+        _format: json
+        _sylius:
+            csrf_protection: false
+            factory:
+                method: createForProduct
+                arguments: [expr:notFoundOnNull(service('sylius.repository.product').find($productId))]
+            form:
+                type: Sylius\Bundle\CoreBundle\Form\Type\Order\AddToCartType
+                options:
+                    product: expr:notFoundOnNull(service('sylius.repository.product').find($productId))
+                    csrf_protection: false
+            redirect:
+                route: sylius_shop_cart_summary
+                parameters: {}
+            flash: sylius.cart.add_item
+    options:
+        expose: true
+
+sylius_shop_ajax_cart_item_remove:
+    path: /{id}/remove
+    methods: [DELETE]
+    defaults:
+        _controller: sylius.controller.order_item::removeAction
+        _format: json
+        _sylius:
+            csrf_protection: false
+            flash: sylius.cart.remove_item
+    options:
+        expose: true

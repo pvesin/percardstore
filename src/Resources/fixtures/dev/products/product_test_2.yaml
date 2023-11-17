@@ -1,0 +1,44 @@
+App\Entity\Product\Product:
+    product_test_2:
+        code: 'product_test_2'
+        channels: ['@channel_web_store_fr']
+        images: ['@product_test_2_image_1']
+
+App\Entity\Product\ProductTranslation:
+    product_test_2_trans:
+        translatable: '@product_test_2'
+        name: "Superdofin 062/197 Carte Pokémon™ Rare Neuve FR"
+        slug: 'produit-test-2'
+        locale: 'fr'
+        shortDescription: <identity("Lorem ipsum long")>
+        description: <identity("Lorem ipsum long")>
+
+App\Entity\Channel\ChannelPricing:
+    product_test_2_pricing:
+        channelCode: 'web_store_fr'
+        productVariant: '@product_test_2_variant'
+        price: 199
+        originalPrice: 199
+
+App\Entity\Product\ProductVariant:
+    product_test_2_variant:
+        code: 'product_test_2'
+        product: '@product_test_2'
+        onHand: 50
+        tracked: true
+
+App\Entity\Product\ProductVariantTranslation:
+    product_test_2_variant_1_translation:
+        translatable: '@product_test_2_variant'
+        name: "Superdofin 062/197 Carte Pokémon™ Rare Neuve FR"
+        locale: 'fr'
+
+App\Entity\Product\ProductTaxon:
+    product_test_2_taxon_1:
+        product: '@product_test_2'
+        taxon: '@taxon_single_card'
+
+App\Entity\Product\ProductImage:
+    product_test_2_image_1:
+        type: 'main'
+        path: 'products/product_test_2_1.png'

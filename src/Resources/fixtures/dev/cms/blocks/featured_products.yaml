@@ -1,0 +1,13 @@
+BitBag\SyliusCmsPlugin\Entity\Block:
+    featured_products:
+        code: 'featured_products'
+        channels: ['@channel_web_store_fr']
+        products: ['@product_test_5','@product_test_4','@product_test_3','@product_test_2','@product_test_1',]
+
+BitBag\SyliusCmsPlugin\Entity\BlockTranslation:
+    featured_products_trans:
+        translatable: '@featured_products'
+        locale: 'fr'
+        name: "PRODUITS À LA UNE"
+        content: "DÉCOUVRIR LES PRODUITS"
+        link: "#"

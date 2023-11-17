@@ -1,0 +1,12 @@
+include:
+    - 'addressing.yaml'
+    - 'admin_user.yaml'
+    - 'currency.yaml'
+    - 'locale.yaml'
+    - 'shop_user.yaml'
+    - 'channel.yaml'
+    - 'products.yaml'
+    - 'taxons.yaml'
+    - 'medias/medias.yaml'
+    - 'cms/sections.yaml'
+    - 'cms/blocks.yaml'

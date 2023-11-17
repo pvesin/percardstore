@@ -1,0 +1,7 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<div class="col text-center text-sm-start">
+    <a href="{{ path('sylius_shop_homepage') }}">
+        {{ Image.lazyload('logo', 'logo', {'classes' : 'mb-3 mb-sm-0'}) }}
+    </a>
+</div>

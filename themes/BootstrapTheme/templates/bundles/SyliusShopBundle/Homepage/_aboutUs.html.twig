@@ -1,0 +1,9 @@
+<div class="row mb-5">
+    <div class="col-12 col-sm-6">
+        <h2 class="Title--decoration fs-1 mb-3">{{ 'sylius.homepage.brands'|trans }}</h2>
+        {{ render(path('bitbag_sylius_cms_plugin_shop_media_index_by_section_code', {'sectionCode' : 'brands', 'template' : 'cms/_sections/brands.html.twig'})) }}
+    </div>
+    <div class="col-12 col-sm-6">
+        {{ render(path('bitbag_sylius_cms_plugin_shop_block_render', {'code' : 'about_us', 'template' : 'cms/_blocks/about_us.html.twig'})) }}
+    </div>
+</div>

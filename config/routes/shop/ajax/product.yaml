@@ -1,0 +1,26 @@
+sylius_shop_ajax_product_by_taxon:
+    path: /search/{slug}
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product::indexAction
+        _format: json
+        _sylius:
+            serialization_groups: [Default]
+            permission: true
+            grid: sylius_shop_product
+    requirements:
+        slug: .+(?<!/)
+    options:
+        expose: true
+
+sylius_shop_product_ajax_search:
+    path: /search
+    methods: [GET]
+    defaults:
+        _controller: sylius.controller.product::indexAction
+        _format: json
+        _sylius:
+            serialization_groups: [Search, Default]
+            grid: app_shop_product_search
+    options:
+        expose: true

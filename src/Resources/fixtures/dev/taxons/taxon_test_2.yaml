@@ -1,0 +1,15 @@
+App\Entity\Taxonomy\Taxon:
+    taxon_single_card:
+        code: single_card
+
+App\Entity\Taxonomy\TaxonTranslation:
+    taxon_single_card_trans_fr:
+        locale: 'fr'
+        slug: "carte-a-l-unite"
+        translatable: '@taxon_single_card'
+        name: "Carte à l'unité"
+    taxon_single_card_trans_en:
+        locale: 'en'
+        slug: "single-card"
+        translatable: '@taxon_single_card'
+        name: "Single card"

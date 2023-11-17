@@ -1,0 +1,9 @@
+services:
+    app.controller.wishlist:
+        class: App\Controller\WishlistController
+        public: true
+        arguments:
+            $twig: '@twig'
+            $wishlistRepository: '@bitbag_sylius_wishlist_plugin.repository.wishlist'
+            $productRepository: '@sylius.repository.product'
+            $wishlistsResolver: "@bitbag_sylius_wishlist_plugin.resolver.wishlists_resolver"

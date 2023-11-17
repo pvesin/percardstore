@@ -1,0 +1,17 @@
+{% import '@SyliusShop/Common/Macro/images.html.twig' as Image %}
+
+<div class="row mb-5">
+    <div class="homepage-banner col-12 col-md-8 p-5">
+        <div class="homepage-banner__image">
+            {{ Image.lazyload('banner', 'original') }}
+        </div>
+        <div class="homepage-banner__content bg-white border-start border-4 border-primary p-4">
+            <h1 class="display-6 text-black">{{ 'sylius.homepage.banner_title'|trans }}</h1>
+            <p>{{ 'sylius.homepage.banner_content'|trans }}</p>
+            <a href="#" class="btn btn-primary font-weight-bold">{{ 'sylius.shop.discover'|trans }}</a>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        {{ Image.lazyload('banner_2', 'sylius_homepage_banner', {classes: 'w-100 h-100 object-fit-cover border-start border-4 border-primary'}) }}
+    </div>
+</div>
