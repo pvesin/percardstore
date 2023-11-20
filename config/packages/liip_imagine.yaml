@@ -1,100 +1,137 @@
 liip_imagine:
+    webp:
+        generate: true
+        quality: 80
+    controller:
+        redirect_response_code: 302
     resolvers:
         default:
             web_path:
                 web_root: "%kernel.project_dir%/public"
                 cache_prefix: "media/cache"
+    loaders:
+        default:
+            filesystem:
+                data_root:
+                    - "%kernel.project_dir%/public"
     filter_sets:
         original: ~
         original_low:
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 90, progressive: true }
+            format: webp
+            quality: 20
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 90, progressive: true }
 
         logo:
+            format: webp
+            quality: 80
             filters:
                 relative_resize:
                     heighten: 60
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 90, progressive: true }
+
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 90, progressive: true }
         logo_low:
+            format: webp
+            quality: 20
             filters:
                 relative_resize:
                     heighten: 60
-            post_processors:
-                pngquant: { quality: "15-20" }
-                jpegoptim: { strip_all: true, max: 20, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "15-20" }
+#                jpegoptim: { strip_all: true, max: 20, progressive: true }
 
         sylius_menu_locale:
+            format: webp
+            quality: 80
             filters:
                 relative_resize:
                     heighten: 16
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 90, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 90, progressive: true }
         sylius_menu_locale_low:
+            format: webp
+            quality: 20
             filters:
                 relative_resize:
                     heighten: 16
-            post_processors:
-                pngquant: { quality: "15-20" }
-                jpegoptim: { strip_all: true, max: 20, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "15-20" }
+#                jpegoptim: { strip_all: true, max: 20, progressive: true }
 
         sylius_homepage_banner:
+            format: webp
+            quality: 80
             filters:
                 thumbnail: { size: [ 603, 435 ], mode: outbound }
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 90, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 90, progressive: true }
         sylius_homepage_banner_low:
+            format: webp
+            quality: 20
             filters:
                 thumbnail: { size: [ 603, 435 ], mode: outbound }
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 20, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 20, progressive: true }
 
         heighten_112:
+            format: webp
+            quality: 80
             filters:
                 relative_resize:
                     heighten: 112
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 90, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 90, progressive: true }
         heighten_112_low:
+            format: webp
+            quality: 20
             filters:
                 relative_resize:
                     heighten: 112
-            post_processors:
-                pngquant: { quality: "15-20" }
-                jpegoptim: { strip_all: true, max: 20, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "15-20" }
+#                jpegoptim: { strip_all: true, max: 20, progressive: true }
 
         heighten_260:
+            format: webp
+            quality: 80
             filters:
                 relative_resize:
                     heighten: 260
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 90, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 90, progressive: true }
         heighten_260_low:
+            format: webp
+            quality: 20
             filters:
                 relative_resize:
                     heighten: 260
-            post_processors:
-                pngquant: { quality: "15-20" }
-                jpegoptim: { strip_all: true, max: 20, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "15-20" }
+#                jpegoptim: { strip_all: true, max: 20, progressive: true }
 
         heighten_412:
+            format: webp
+            quality: 80
             filters:
                 relative_resize:
                     heighten: 412
-            post_processors:
-                pngquant: { quality: "65-70" }
-                jpegoptim: { strip_all: true, max: 90, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "65-70" }
+#                jpegoptim: { strip_all: true, max: 90, progressive: true }
         heighten_412_low:
+            format: webp
+            quality: 20
             filters:
                 relative_resize:
                     heighten: 412
-            post_processors:
-                pngquant: { quality: "15-20" }
-                jpegoptim: { strip_all: true, max: 20, progressive: true }
+#            post_processors:
+#                pngquant: { quality: "15-20" }
+#                jpegoptim: { strip_all: true, max: 20, progressive: true }
