@@ -543,6 +543,15 @@
     "squizlabs/php_codesniffer": {
         "version": "3.3.1"
     },
+    "stefandoorn/sitemap-plugin": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.0",
+            "ref": "362bd952a717a5baf3b922907b3b9eb34da26caf"
+        }
+    },
     "stella-maris/clock": {
         "version": "0.1.4"
     },

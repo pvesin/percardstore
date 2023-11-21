@@ -28,6 +28,7 @@
         "bitbag/cms-plugin": "^4.0",
         "bitbag/wishlist-plugin": "^3.0",
         "friendsofsymfony/jsrouting-bundle": "*",
+        "stefandoorn/sitemap-plugin": "^2.2",
         "sylius/bootstrap-theme": "^0.7.1",
         "sylius/paypal-plugin": "^1.5",
         "sylius/sylius": "^1.12",

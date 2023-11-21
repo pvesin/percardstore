@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a267adfc90d5ca6e56a41358f9ad4f20",
+    "content-hash": "da8864e96b907617934642b840835282",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -7556,6 +7556,82 @@
                 }
             ],
             "time": "2023-07-08T15:39:09+00:00"
+        },
+        {
+            "name": "stefandoorn/sitemap-plugin",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stefandoorn/sitemap-plugin.git",
+                "reference": "a27e477e255482051561c8f738b3434f89716e60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stefandoorn/sitemap-plugin/zipball/a27e477e255482051561c8f738b3434f89716e60",
+                "reference": "a27e477e255482051561c8f738b3434f89716e60",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "sylius/sylius": "~1.9.0 || ~1.10.0 || ~1.11.0 || ~1.12.0"
+            },
+            "conflict": {
+                "twig/twig": "<2.9"
+            },
+            "require-dev": {
+                "api-platform/core": "~2.5.0 || ~2.6.0 || ~2.7.0",
+                "friendsofsymfony/oauth-server-bundle": "^1.6 || >2.0.0-alpha.0 ^2.0@dev",
+                "lchrusciel/api-test-case": "^5.1",
+                "league/flysystem-bundle": "^2.0 || ^3.0",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.3",
+                "phpspec/phpspec": "^7.0",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.2",
+                "phpstan/phpstan-doctrine": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.1",
+                "phpstan/phpstan-symfony": "^1.0",
+                "phpstan/phpstan-webmozart-assert": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "sensiolabs/security-checker": "^6.0",
+                "sylius-labs/coding-standard": "^4.0",
+                "sylius/mailer-bundle": "^1.8 || ^2.0@beta",
+                "symfony/browser-kit": "^4.4 || ^5.4",
+                "symfony/debug-bundle": "^4.4 || ^5.4",
+                "symfony/dotenv": "^4.4 || ^5.4",
+                "symfony/intl": "^4.4 || ^5.4",
+                "symfony/web-profiler-bundle": "^4.4 || ^5.4",
+                "symfony/webpack-encore-bundle": "^1.15",
+                "vimeo/psalm": "4.23.0"
+            },
+            "type": "sylius-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SitemapPlugin\\": "src/",
+                    "Tests\\SitemapPlugin\\": [
+                        "tests/",
+                        "tests/Application/src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Sitemap Plugin for Sylius",
+            "keywords": [
+                "sylius",
+                "sylius-plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/stefandoorn/sitemap-plugin/issues",
+                "source": "https://github.com/stefandoorn/sitemap-plugin/tree/v2.2.0"
+            },
+            "time": "2023-08-15T12:30:44+00:00"
         },
         {
             "name": "stof/doctrine-extensions-bundle",

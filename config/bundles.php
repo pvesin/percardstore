@@ -69,4 +69,5 @@ return [
     Asdoria\SyliusQuickShoppingPlugin\AsdoriaSyliusQuickShoppingPlugin::class => ['all' => true],
     Asdoria\SyliusQuoteRequestPlugin\AsdoriaSyliusQuoteRequestPlugin::class => ['all' => true],
     BitBag\SyliusWishlistPlugin\BitBagSyliusWishlistPlugin::class => ['all' => true],
+    SitemapPlugin\SitemapPlugin::class => ['all' => true],
 ];
