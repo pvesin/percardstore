@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import debounce from '../../common/utils/debounce'
+import { default as clickOut } from '../../common/utils/clickOut'
 import { Dropdown } from 'bootstrap'
 
 const ApiFetchProductVariantsByPhrase = async (url, criteriaName, searchValue = '', abortController = null) => {
@@ -32,6 +33,8 @@ $.fn.extend({
             const loadEditUrl       = element.data('load-edit-url')
             const menuElement       = element.find('div.dropdown-menu')
 
+            let currentProduct = null
+
             let abortController
             const dropdown = new Dropdown(element)
 
@@ -41,17 +44,30 @@ $.fn.extend({
                 ApiFetchProductVariantsByCodes(loadEditUrl, autocompleteInput.val()).then(data => {
                     dropdownInput.val(data[0]['descriptor'])
                     dropdownImage.attr("src", data[0]['image'])
+
+                    currentProduct = {
+                        code: autocompleteInput.val(),
+                        descriptor: data[0]['descriptor'],
+                        image: data[0]['image']
+                    }
                 })
             }
 
             dropdownInput[0].addEventListener('keydown', debounce(() => {
                 menuElement.empty()
+                menuElement.append($('<span>', {class: "Loader d-block mx-auto"}))
                 if (!!abortController) {
                     abortController.abort()
                     abortController = null
                 }
                 abortController = new AbortController()
                 ApiFetchProductVariantsByPhrase(url, criteriaName, dropdownInput.val(), abortController).then(data => {
+                    menuElement.empty()
+                    if (!data.length) {
+                        menuElement.append(Translator.trans('sylius.search.no_result'))
+                        return
+                    }
+
                     data.forEach((item) => {
                         menuElement.append(
                             $(`<div class="item cursor-pointer" data-value="${ item['code'] }" data-slug="${ item['slug'] }">
@@ -61,6 +77,12 @@ $.fn.extend({
                                 autocompleteInput.val(item['code'])
                                 dropdownInput.val(item['descriptor'])
                                 dropdownImage.attr("src", item['image'])
+
+                                currentProduct = {
+                                    code: item['code'],
+                                    descriptor: item['descriptor'],
+                                    image: item['image']
+                                }
                             })
                         )
                     })
@@ -73,6 +95,14 @@ $.fn.extend({
                     dropdownInput.val('')
                     dropdownImage.removeAttr('src')
                 }
+            })
+
+            clickOut(dropdownInput[0], () => {
+                if (!currentProduct) return
+
+                autocompleteInput.val(currentProduct['code'])
+                dropdownInput.val(currentProduct['descriptor'])
+                dropdownImage.attr("src", currentProduct['image'])
             })
         })
     },

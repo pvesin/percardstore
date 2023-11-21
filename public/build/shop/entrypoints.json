@@ -2,31 +2,31 @@
   "entrypoints": {
     "app": {
       "css": [
-        "/build/shop/793.1f0d4b2a.min.css",
-        "/build/shop/app.1f0d4b2a.min.css"
+        "/build/shop/793.6a28a75e.min.css",
+        "/build/shop/app.6a28a75e.min.css"
       ],
       "js": [
-        "/build/shop/793.1f0d4b2a.min.js",
-        "/build/shop/app.1f0d4b2a.min.js"
+        "/build/shop/793.6a28a75e.min.js",
+        "/build/shop/app.6a28a75e.min.js"
       ]
     },
     "shop-entry": {
       "js": [
-        "/build/shop/755.1f0d4b2a.min.js",
-        "/build/shop/303.1f0d4b2a.min.js",
-        "/build/shop/shop-entry.1f0d4b2a.min.js"
+        "/build/shop/755.6a28a75e.min.js",
+        "/build/shop/303.6a28a75e.min.js",
+        "/build/shop/shop-entry.6a28a75e.min.js"
       ],
       "css": [
-        "/build/shop/303.1f0d4b2a.min.css",
-        "/build/shop/shop-entry.1f0d4b2a.min.css"
+        "/build/shop/303.6a28a75e.min.css",
+        "/build/shop/shop-entry.6a28a75e.min.css"
       ]
     },
     "bitbag-cms-shop": {
       "css": [
-        "/build/shop/bitbag-cms-shop.1f0d4b2a.min.css"
+        "/build/shop/bitbag-cms-shop.6a28a75e.min.css"
       ],
       "js": [
-        "/build/shop/bitbag-cms-shop.1f0d4b2a.min.js"
+        "/build/shop/bitbag-cms-shop.6a28a75e.min.js"
       ]
     }
   }

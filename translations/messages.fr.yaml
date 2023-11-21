@@ -26,6 +26,10 @@ sylius:
         no_result: "Aucun résulat"
         products_of_taxon: "Produits de la catégorie \"%taxonName%\""
         warning: "Entrer au moins %minChar% caractères"
+    quote:
+        search_product: "Rechercher un produit"
+        save_my_quote: "Enregistrer"
+        confirm_my_quote: "Valider le devis"
     wishlist:
         title: "Favoris"
         delete_all_products: "Supprimer cette liste"
