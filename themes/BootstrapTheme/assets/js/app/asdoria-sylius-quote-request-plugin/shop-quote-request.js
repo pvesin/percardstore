@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import './product-variant-auto-complete';
+import { productVariantAutoComplete } from './product-variant-auto-complete';
 
 export default () => {
-    $('.sylius-autocomplete.dropdown').productVariantAutoComplete();
+    const elements = document.querySelectorAll('.sylius-autocomplete.dropdown')
+    productVariantAutoComplete(elements);
     initDropDownSyliusAutocomplete();
 }
 
@@ -15,7 +15,10 @@ const initDropDownSyliusAutocomplete = () => {
   const observerRefresh  = new MutationObserver((e) => {
     e.forEach(({target}) => {
       var target = target.children.item((target.children.length -1));
-      $(target).find('.sylius-autocomplete.dropdown').productVariantAutoComplete();
+      if (target) {
+        const elements = target.querySelectorAll('.sylius-autocomplete.dropdown')
+        productVariantAutoComplete(elements);
+      }
     })
   });
   observerRefresh.observe(targetNode, config);

@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 /**
  * Collection Form plugin
  *
@@ -7,123 +5,145 @@ import $ from 'jquery';
  * @constructor
  */
 class CollectionForm {
-  constructor(element) {
-    this.addItem = this.addItem.bind(this);
-    this.updateItem = this.updateItem.bind(this);
-    this.deleteItem = this.constructor.deleteItem;
-    this.updatePrototype = this.updatePrototype.bind(this);
+    constructor (element) {
+        this.addItem         = this.addItem.bind(this)
+        this.updateItem      = this.updateItem.bind(this)
+        this.deleteItem      = this.deleteItem.bind(this)
+        this.updatePrototype = this.updatePrototype.bind(this)
 
-    this.$element = $(element);
-    this.$list = this.$element.find('[data-form-collection="list"]:first');
-    this.count = this.$list.children().length;
-    this.lastChoice = null;
-    this.$element.on('click', '[data-form-collection="add"]:last', this.addItem);
-    this.$element.on('click', '[data-form-collection="delete"]', this.deleteItem);
-    this.$element.on('change', '[data-form-collection="update"]', this.updateItem);
-    $(document).on('change', '[data-form-prototype="update"]', this.updatePrototype);
-    $(document).on('collection-form-add', (event, addedElement) => {
-      $(addedElement).find('[data-form-type="collection"]').CollectionForm();
-      $(document).trigger('dom-node-inserted', [$(addedElement)]);
-    });
-  }
+        this.$element   = element
+        this.$list      = this.$element.querySelector('[data-form-collection="list"]')
+        this.count      = this.$list.children.length
+        this.lastChoice = null
 
-  /**
-   * Add a item to the collection.
-   * @param event
-   */
-  addItem(event) {
-    event.preventDefault();
+        const addCollectionButton = this.$element.querySelector('[data-form-collection="add"]')
+        if (addCollectionButton) {
+            addCollectionButton.addEventListener('click', this.addItem)
+        }
 
-    let prototype = this.$element.data('prototype');
-    let prototypeName = new RegExp(this.$element.data('prototype-name'), 'g');
+        const deleteCollectionButtons = this.$element.querySelectorAll('[data-form-collection="delete"]');
+        [...deleteCollectionButtons].forEach(deleteCollectionButton => {
+            deleteCollectionButton.addEventListener('click', this.deleteItem)
+        })
 
-    prototype = prototype.replace(prototypeName, this.count);
+        const updateCollectionButton = this.$element.querySelector('[data-form-collection="update"]')
+        if (updateCollectionButton) {
+            updateCollectionButton.addEventListener('change', this.updateItem)
+        }
 
-    this.$list.append(prototype);
-    this.count = this.count + 1;
+        const updatePrototypeButton = document.querySelector('[data-form-prototype="update"]')
+        if (updatePrototypeButton) {
+            updatePrototypeButton.addEventListener('change', this.updatePrototype)
+        }
 
-    $(document).trigger('collection-form-add', [this.$list.children().last()]);
-  }
+        document.addEventListener('collection-form-add', (event) => {
+            const addedElement  = event.detail[0]
+            const collection = addedElement.closest('[data-form-type="collection"]')
+            CollectionFormPlugin(collection)
 
-  /**
-   * Update item from the collection
-   */
-  updateItem(event) {
-    event.preventDefault();
-    const $element = $(event.currentTarget);
-    const url = $element.data('form-url');
-    const value = $element.val();
-    const $container = $element.closest('[data-form-collection="item"]');
-    const index = $container.data('form-collection-index');
-    const position = $container.data('form-collection-index');
+            addedElement.querySelector('[data-form-collection="delete"]').addEventListener('click', this.deleteItem)
 
-    if (url) {
-      $container.load(url, { id: value, position });
-    } else {
-      let $prototype = this.$element.find(`[data-form-prototype="${value}"]`);
-      let prototypeName = new RegExp($prototype.data('subprototype-name'), 'g');
-
-      let prototype = $prototype.val().replace(prototypeName, index);
-
-      $container.replaceWith(prototype);
-    }
-    $(document).trigger('collection-form-update', [$(event.currentTarget)]);
-  }
-
-  /**
-   * Delete item from the collection
-   * @param event
-   */
-  static deleteItem(event) {
-    event.preventDefault();
-
-    $(event.currentTarget)
-      .closest('[data-form-collection="item"]')
-      .remove();
-
-    $(document).trigger('collection-form-delete', [$(event.currentTarget)]);
-  }
-
-  /**
-   * Update the prototype
-   * @param event
-   */
-  updatePrototype(event) {
-    const $target = $(event.currentTarget);
-    let prototypeName = $target.val();
-
-    if ($target.data('form-prototype-prefix') !== undefined) {
-      prototypeName = $target.data('form-prototype-prefix') + prototypeName;
+            document.dispatchEvent(new CustomEvent('dom-node-inserted', { detail: [addedElement] }))
+        })
     }
 
-    if (this.lastChoice !== null && this.lastChoice !== prototypeName) {
-      this.$list.html('');
+    /**
+     * Add a item to the collection.
+     * @param event
+     */
+    addItem (event) {
+        event.preventDefault()
+
+        let { prototype, prototypeName } = this.$element.dataset
+        const prototypeNameValue         = new RegExp(prototypeName, 'g')
+
+        prototype = prototype.replace(prototypeNameValue, this.count)
+
+        this.$list.insertAdjacentHTML('beforeend', prototype)
+        this.count = this.count + 1
+
+        document.dispatchEvent(new CustomEvent('collection-form-add', { detail: [this.$list.lastElementChild] }))
     }
 
-    this.lastChoice = prototypeName;
+    /**
+     * Update item from the collection
+     */
+    updateItem (event) {
+        event.preventDefault()
+        const $element   = event.currentTarget
+        const url        = $element.dataset.formUrl
+        const value      = $element.value
+        const $container = $element.closest('[data-form-collection="item"]')
+        const index      = $container.dataset.formCollectionIndex
+        const position   = $container.dataset.formCollectionIndex
 
-    this.$element.data('prototype', this.$element.find(`[data-form-prototype="${prototypeName}"]`).val());
-  }
+        if (url) {
+            fetch(url, { id: value, position })
+                .then((res) => {
+                    return res.text()
+                })
+                .then((body) => {
+                    $container.innerHTML = body
+                })
+        } else {
+            let $prototype    = this.$element.querySelector(`[data-form-prototype="${ value }"]`)
+            let prototypeName = new RegExp($prototype.dataset.subprototypeName, 'g')
+
+            let prototype = $prototype.value.replace(prototypeName, index)
+
+            const parent = $container.parentNode
+            parent.replaceChild(prototype, $container)
+        }
+        document.dispatchEvent(new CustomEvent('collection-form-update', { detail: [event.currentTarget] }))
+    }
+
+    /**
+     * Delete item from the collection
+     * @param event
+     */
+    deleteItem (event) {
+        event.preventDefault()
+
+        event.currentTarget
+            .closest('[data-form-collection="item"]')
+            .remove()
+
+        document.dispatchEvent(new CustomEvent('collection-form-delete', { detail: [event.currentTarget] }))
+    }
+
+    /**
+     * Update the prototype
+     * @param event
+     */
+    updatePrototype (event) {
+        const $target     = event.currentTarget
+        let prototypeName = $target.value
+
+        if ($target.dataset.formPrototypePrefix !== undefined) {
+            prototypeName = $target.dataset.formPrototypePrefix + prototypeName
+        }
+
+        if (this.lastChoice !== null && this.lastChoice !== prototypeName) {
+            this.$list.innerHTML = ''
+        }
+
+        this.lastChoice = prototypeName
+
+        const prototypeValue = this.$element.querySelector(`[data-form-prototype="${ prototypeName }"]`).value
+        this.$element.data('prototype', prototypeValue)
+    }
 }
 
-/*
- * Plugin definition
- */
-
-$.fn.CollectionForm = function CollectionFormPlugin(option) {
-  this.each((idx, el) => {
-    const $element = $(el);
-    const data = $element.data('collectionForm');
-    const options = typeof option === 'object' && option;
-
-    if (!data) {
-      $element.data('collectionForm', new CollectionForm(el, options));
+const CollectionFormPlugin = (element) => {
+    const { collectionForm } = element.dataset
+    if (!collectionForm) {
+        element.setAttribute('data-collection-form', new CollectionForm(element))
     }
-  });
-};
-
-$.fn.CollectionForm.Constructor = CollectionForm;
+}
 
 export default () => {
-    $('[data-form-type="collection"]').CollectionForm();
+    const formCollections = document.querySelectorAll('[data-form-type="collection"]');
+    [...formCollections].forEach(formCollection => {
+        CollectionFormPlugin(formCollection)
+    })
 }

@@ -2,13 +2,13 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/bootstrap-theme/runtime.9e68c34f.min.js",
-        "/build/bootstrap-theme/205.9e68c34f.min.js",
-        "/build/bootstrap-theme/app.9e68c34f.min.js"
+        "/build/bootstrap-theme/runtime.70d3fd8a.min.js",
+        "/build/bootstrap-theme/205.70d3fd8a.min.js",
+        "/build/bootstrap-theme/app.70d3fd8a.min.js"
       ],
       "css": [
-        "/build/bootstrap-theme/205.9e68c34f.min.css",
-        "/build/bootstrap-theme/app.9e68c34f.min.css"
+        "/build/bootstrap-theme/205.70d3fd8a.min.css",
+        "/build/bootstrap-theme/app.70d3fd8a.min.css"
       ]
     }
   }
